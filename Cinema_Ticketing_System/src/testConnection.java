@@ -11,7 +11,7 @@ import java.sql.*;
  * @author ACER
  */
 public class testConnection {
-
+//this is a connection testing
     public static void main(String args[]) {
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
