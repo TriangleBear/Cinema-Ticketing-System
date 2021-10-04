@@ -15,11 +15,11 @@ public class testConnection {
     public static void main(String args[]) {
         try{  
             Class.forName("com.mysql.cj.jdbc.Driver");  
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","2001");  
-            Statement stmt = conn.createStatement();  
-            ResultSet rs = stmt.executeQuery("select * from db");    
-            conn.close();  
-        }catch(Exception ex){
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","2001")) {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("select * from db");
+            }  
+        }catch(ClassNotFoundException | SQLException ex){
             System.out.println(ex);
         } 
     }
