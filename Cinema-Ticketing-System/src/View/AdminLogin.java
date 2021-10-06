@@ -12,10 +12,12 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class AdminLogin {
 
-	private JFrame loginFrame;
+	JFrame loginFrame;
 	private JTextField txtFieldUsername;
 	private JPasswordField passwordField;
 
@@ -69,22 +71,33 @@ public class AdminLogin {
 		
 		txtFieldUsername = new JTextField();
 		txtFieldUsername.setBounds(182, 57, 219, 39);
-		loginFrame.getContentPane().add(txtFieldUsername);
 		txtFieldUsername.setColumns(10);
+		loginFrame.getContentPane().add(txtFieldUsername);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(182, 126, 219, 39);
+		loginFrame.getContentPane().add(passwordField);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(63, 225, 128, 39);
 		btnLogin.setEnabled(false);
-		if(txtFieldUsername.getText() != ""  && passwordField.getPassword().length != 0 ) {
-			btnLogin.setEnabled(true);
-		}
+		btnLogin.setBounds(63, 225, 128, 39);
+		txtFieldUsername.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if(txtFieldUsername.getText().length()>0) {
+					btnLogin.setEnabled(true);
+				}else {
+					btnLogin.setEnabled(false);
+				}
+			}
+		});
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 String validUsername = "admin";
-		         String validPassword = "yacckk";
+				String validUsername = "admin";
+			    String validPassword = "yacckk";
 		         String username = txtFieldUsername.getText();
 		         String password = new String(passwordField.getPassword());
-		    
+		         
 		         if(validUsername.equals(username) &&
 		            validPassword.equals(password)) {
 		             JOptionPane.showMessageDialog(loginFrame, "Login Successfully");
@@ -94,6 +107,7 @@ public class AdminLogin {
 		         }
 			}
 		});
+		
 		btnLogin.setBackground(SystemColor.inactiveCaption);
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		loginFrame.getContentPane().add(btnLogin);
@@ -102,6 +116,7 @@ public class AdminLogin {
 		btnCancel.setBounds(283, 225, 128, 39);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				loginFrame.setVisible(false);
 				MainView main = new MainView();
 				main.frmMainview.setVisible(true);
 			}
@@ -110,9 +125,7 @@ public class AdminLogin {
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		loginFrame.getContentPane().add(btnCancel);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(182, 126, 219, 39);
-		loginFrame.getContentPane().add(passwordField);
+		
 		
 	}
 }
