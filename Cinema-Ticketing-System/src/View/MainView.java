@@ -50,9 +50,16 @@ public class MainView {
 		frmMainview.setLocationRelativeTo(null);
 		frmMainview.getContentPane().setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("Admin");
-		btnNewButton_1.setBounds(1298, 0, 128, 32);
-		frmMainview.getContentPane().add(btnNewButton_1);
+		JButton btnAdmin = new JButton("Admin");
+		btnAdmin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMainview.setVisible(false);
+				AdminLogin admin = new AdminLogin();
+				admin.loginFrame.setVisible(true);
+			}
+		});
+		btnAdmin.setBounds(1298, 0, 128, 32);
+		frmMainview.getContentPane().add(btnAdmin);
 		
 		JButton btnNewButton = new JButton("Cinema 1");
 		btnNewButton.addActionListener(new ActionListener() {
