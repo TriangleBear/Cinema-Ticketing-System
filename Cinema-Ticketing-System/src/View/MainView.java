@@ -1,15 +1,16 @@
 package View;
 import java.awt.EventQueue;
-import java.awt.Image;
 import javax.swing.JFrame;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainView {
 
-	private JFrame frmMainview;
+	JFrame frmMainview;
+	
 	//private final JLabel lblBackground = new JLabel("");
 
 	/**
@@ -34,6 +35,7 @@ public class MainView {
 	public MainView() {
 		initialize();
 	}
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -44,6 +46,7 @@ public class MainView {
 		frmMainview.setBounds(100, 100, 1440, 682);
 		frmMainview.setIconImage(null);
 		frmMainview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMainview.setLocationRelativeTo(null);
 		frmMainview.getContentPane().setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("Admin");
@@ -51,6 +54,13 @@ public class MainView {
 		frmMainview.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("Cinema 1");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmMainview.setVisible(false);
+				SecondView cinemaView = new SecondView();
+				cinemaView.frmSecondView.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(22, 92, 335, 467);
 		try {
 		    btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema11.jpg")));
@@ -92,5 +102,6 @@ public class MainView {
 		lblBackground.setSize(1000,600);
 		lblBackground.setBounds(0, 0, 1426, 645);
 		frmMainview.getContentPane().add(lblBackground);
+		
 	}
 }
