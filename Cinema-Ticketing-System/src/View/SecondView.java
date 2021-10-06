@@ -345,10 +345,15 @@ public class SecondView {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmSecondView.setVisible(false);
 				MainView cinemaView = new MainView();
-				JOptionPane.showConfirmDialog(null, "Are you sure?");
-				cinemaView.frmMainview.setVisible(true);
+				int r = JOptionPane.showConfirmDialog(frmSecondView, "Do you want to cancel?", "Cancel", JOptionPane.YES_NO_OPTION);
+				if(r == JOptionPane.YES_OPTION) {
+					frmSecondView.setVisible(false);
+					cinemaView.frmMainview.setVisible(true);
+				}else if(r == JOptionPane.NO_OPTION){
+					frmSecondView.setVisible(true);
+				}
+				
 			}
 		});
 		btnCancel.setBounds(0, 650, 119, 48);
