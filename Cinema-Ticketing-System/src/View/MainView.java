@@ -65,7 +65,7 @@ public class MainView {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMainview.setVisible(false);
-				SecondView cinemaView = new SecondView();
+				CinemaView cinemaView = new CinemaView();
 				cinemaView.frmSecondView.setVisible(true);
 			}
 		});
