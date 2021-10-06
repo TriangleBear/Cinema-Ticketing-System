@@ -43,6 +43,7 @@ public class SecondView {
 	 */
 	private void initialize() {
 		frmSecondView = new JFrame();
+		frmSecondView.setResizable(false);
 		frmSecondView.setTitle("                                                        "
 				+ "                                   "
 				+ "  Cinema");

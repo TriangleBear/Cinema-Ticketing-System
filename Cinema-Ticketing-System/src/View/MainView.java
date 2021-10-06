@@ -42,6 +42,7 @@ public class MainView {
 	 */
 	private void initialize() {
 		frmMainview = new JFrame();
+		frmMainview.setResizable(false);
 		frmMainview.setTitle("MainView");
 		frmMainview.setBounds(100, 100, 1440, 682);
 		frmMainview.setIconImage(null);
