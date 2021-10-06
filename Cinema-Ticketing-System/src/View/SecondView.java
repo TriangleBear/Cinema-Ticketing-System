@@ -353,6 +353,66 @@ public class SecondView {
 		btnCancel.setBounds(0, 650, 119, 48);
 		frmSecondView.getContentPane().add(btnCancel);
 		
+		JLabel lblNewLabel = new JLabel("A");
+		lblNewLabel.setBounds(142, 273, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("B");
+		lblNewLabel_1.setBounds(142, 323, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("C");
+		lblNewLabel_1_1.setBounds(142, 377, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("D");
+		lblNewLabel_1_2.setBounds(142, 430, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("E");
+		lblNewLabel_1_3.setBounds(142, 482, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_1_3);
+		
+		JLabel lblNewLabel_2 = new JLabel("F");
+		lblNewLabel_2.setBounds(142, 538, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_1_4 = new JLabel("G");
+		lblNewLabel_1_4.setBounds(142, 591, 46, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_1_4);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("1");
+		lblNewLabel_2_1.setBounds(173, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_3 = new JLabel("2");
+		lblNewLabel_3.setBounds(215, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("3");
+		lblNewLabel_3_1.setBounds(259, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("4");
+		lblNewLabel_3_2.setBounds(303, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_2);
+		
+		JLabel lblNewLabel_3_3 = new JLabel("5");
+		lblNewLabel_3_3.setBounds(348, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_3);
+		
+		JLabel lblNewLabel_3_4 = new JLabel("6");
+		lblNewLabel_3_4.setBounds(392, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_4);
+		
+		JLabel lblNewLabel_3_5 = new JLabel("7");
+		lblNewLabel_3_5.setBounds(437, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_5);
+		
+		JLabel lblNewLabel_3_6 = new JLabel("8");
+		lblNewLabel_3_6.setBounds(485, 233, 18, 14);
+		frmSecondView.getContentPane().add(lblNewLabel_3_6);
+		
 		JLabel seatPlan = new JLabel("");
 		seatPlan.setIcon(new ImageIcon(SecondView.class.getResource("/images/YACCKK_bg.png")));
 		seatPlan.setSize(300,300);
