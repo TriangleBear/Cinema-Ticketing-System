@@ -1,8 +1,4 @@
-import javax.swing.*;
-import Model.*;
 import View.*;
-import Controller.*;
-import java.awt.*;
 public class Main{
 //	public Main() {
 //	

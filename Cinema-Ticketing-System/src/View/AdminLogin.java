@@ -125,7 +125,7 @@ public class AdminLogin {
 			public void actionPerformed(ActionEvent e) {
 				loginFrame.setVisible(false);
 				MainView main = new MainView();
-				main.frmMainview.setVisible(true);
+				main.frmMainView.setVisible(true);
 			}
 		});
 	
