@@ -71,7 +71,7 @@ public class ticketView {
         frmTicketView.getContentPane().add(lblNewLabel);
         
         //set icon
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\TicketGUI.png"));
+        lblNewLabel.setIcon(new ImageIcon(ticketView.class.getResource("/images/TicketGUI.png")));
         
         //set bounds
         lblDate.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
