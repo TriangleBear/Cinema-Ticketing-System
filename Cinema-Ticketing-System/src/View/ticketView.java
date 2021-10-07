@@ -56,6 +56,11 @@ public class ticketView {
         JLabel setlblTime = new JLabel("");
         JLabel lblNewLabel = new JLabel("");
         
+        JLabel lblCinema = new JLabel("Cinema:");
+        lblCinema.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblCinema.setBounds(478, 243, 71, 24);
+        frmTicketView.getContentPane().add(lblCinema);
+        
         
         //content panes
         frmTicketView.getContentPane().add(lblDate);
@@ -81,15 +86,19 @@ public class ticketView {
         setlblTitle.setBounds(488, 103, 259, 59);
         setlblDate.setBounds(187, 271, 231, 34);
         lblSeat.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblSeat.setBounds(478, 253, 71, 24);
+        lblSeat.setBounds(478, 277, 71, 24);
         lblPrice.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblPrice.setBounds(478, 307, 71, 24);
+        lblPrice.setBounds(478, 345, 71, 24);
         lblTime.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblTime.setBounds(478, 355, 71, 24);
-        setlblSeat.setBounds(537, 253, 231, 24);
-        setlblPrice.setBounds(537, 307, 231, 24);
-        setlblTime.setBounds(537, 355, 231, 24);
+        lblTime.setBounds(478, 311, 71, 24);
+        setlblSeat.setBounds(537, 281, 231, 24);
+        setlblPrice.setBounds(537, 345, 231, 24);
+        setlblTime.setBounds(537, 311, 231, 24);
         lblNewLabel.setBounds(-74, 0, 1285, 452);
+        
+        JLabel setlblCinema = new JLabel("");
+        setlblCinema.setBounds(537, 243, 231, 24);
+        frmTicketView.getContentPane().add(setlblCinema);
         
     }
 }
