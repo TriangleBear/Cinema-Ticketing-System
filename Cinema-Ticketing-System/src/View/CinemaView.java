@@ -12,7 +12,7 @@ import java.awt.Color;
 
 public class CinemaView {
 
-	JFrame frmSecondView;
+	public JFrame frmCinemaView;
 
 	/**
 	 * Launch the application.
@@ -22,7 +22,7 @@ public class CinemaView {
 			public void run() {
 				try {
 					CinemaView window = new CinemaView();
-					window.frmSecondView.setVisible(true);
+					window.frmCinemaView.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,14 +41,14 @@ public class CinemaView {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmSecondView = new JFrame();
-		frmSecondView.setTitle(
+		frmCinemaView = new JFrame();
+		frmCinemaView.setTitle(
 				"                                                        "
 				+ "                                   "
 				+ "  Cinema");
-		frmSecondView.setBounds(100, 100, 688, 737);
-		frmSecondView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSecondView.getContentPane().setLayout(null);
+		frmCinemaView.setBounds(100, 100, 688, 737);
+		frmCinemaView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCinemaView.getContentPane().setLayout(null);
 		
 		//buttons
 		JButton btn_a1 = new JButton("");
@@ -268,78 +268,78 @@ public class CinemaView {
 		
 		//content panes
 		
-		frmSecondView.getContentPane().add(btn_a1);
-		frmSecondView.getContentPane().add(btn_a2);
-		frmSecondView.getContentPane().add(btn_a3);
-		frmSecondView.getContentPane().add(btn_a4);
-		frmSecondView.getContentPane().add(btn_a5);	
-		frmSecondView.getContentPane().add(btn_a6);	
-		frmSecondView.getContentPane().add(btn_a7);
-		frmSecondView.getContentPane().add(btn_a8);
-		frmSecondView.getContentPane().add(btn_b1);	
-		frmSecondView.getContentPane().add(btn_b2);
-		frmSecondView.getContentPane().add(btn_b3);
-		frmSecondView.getContentPane().add(btn_b4);
-		frmSecondView.getContentPane().add(btn_b5);
-		frmSecondView.getContentPane().add(btn_b6);
-		frmSecondView.getContentPane().add(btn_b7);
-		frmSecondView.getContentPane().add(btn_b8);
-		frmSecondView.getContentPane().add(btn_c1);
-		frmSecondView.getContentPane().add(btn_c2);
-		frmSecondView.getContentPane().add(btn_c3);
-		frmSecondView.getContentPane().add(btn_c4);
-		frmSecondView.getContentPane().add(btn_c5);
-		frmSecondView.getContentPane().add(btn_c6);
-		frmSecondView.getContentPane().add(btn_c7);
-		frmSecondView.getContentPane().add(btn_c8);
-		frmSecondView.getContentPane().add(btn_d1);
-		frmSecondView.getContentPane().add(btn_d2);
-		frmSecondView.getContentPane().add(btn_d3);
-		frmSecondView.getContentPane().add(btn_d4);
-		frmSecondView.getContentPane().add(btn_d5);
-		frmSecondView.getContentPane().add(btn_d6);
-		frmSecondView.getContentPane().add(btn_d7);
-		frmSecondView.getContentPane().add(btn_d8);
-		frmSecondView.getContentPane().add(btn_e1);
-		frmSecondView.getContentPane().add(btn_e2);
-		frmSecondView.getContentPane().add(btn_e3);
-		frmSecondView.getContentPane().add(btn_e4);
-		frmSecondView.getContentPane().add(btn_e5);
-		frmSecondView.getContentPane().add(btn_e6);
-		frmSecondView.getContentPane().add(btn_e7);
-		frmSecondView.getContentPane().add(btn_e8);
-		frmSecondView.getContentPane().add(btn_f1);
-		frmSecondView.getContentPane().add(btn_f2);
-		frmSecondView.getContentPane().add(btn_f3);
-		frmSecondView.getContentPane().add(btn_f4);
-		frmSecondView.getContentPane().add(btn_f5);
-		frmSecondView.getContentPane().add(btn_f6);
-		frmSecondView.getContentPane().add(btn_f7);
-		frmSecondView.getContentPane().add(btn_f8);
-		frmSecondView.getContentPane().add(btn_g1);
-		frmSecondView.getContentPane().add(btn_g2);
-		frmSecondView.getContentPane().add(btn_g3);
-		frmSecondView.getContentPane().add(btn_g4);
-		frmSecondView.getContentPane().add(btn_g5);
-		frmSecondView.getContentPane().add(btn_g6);
-		frmSecondView.getContentPane().add(btn_g7);
-		frmSecondView.getContentPane().add(btn_g8);
-		frmSecondView.getContentPane().add(btnCancel);
-		frmSecondView.getContentPane().add(lblNewLabel);
-		frmSecondView.getContentPane().add(lblNewLabel_1);
-		frmSecondView.getContentPane().add(lblNewLabel_1_1);
-		frmSecondView.getContentPane().add(lblNewLabel_1_2);
-		frmSecondView.getContentPane().add(lblNewLabel_1_3);
-		frmSecondView.getContentPane().add(lblNewLabel_2);	
-		frmSecondView.getContentPane().add(lblNewLabel_1_4);						
-		frmSecondView.getContentPane().add(lblNewLabel_2_1);
-		frmSecondView.getContentPane().add(lblNewLabel_3);
-		frmSecondView.getContentPane().add(lblNewLabel_3_1);
-		frmSecondView.getContentPane().add(lblNewLabel_3_2);
-		frmSecondView.getContentPane().add(lblNewLabel_3_3);
-		frmSecondView.getContentPane().add(lblNewLabel_3_4);
-		frmSecondView.getContentPane().add(lblNewLabel_3_5);
-		frmSecondView.getContentPane().add(lblNewLabel_3_6);
+		frmCinemaView.getContentPane().add(btn_a1);
+		frmCinemaView.getContentPane().add(btn_a2);
+		frmCinemaView.getContentPane().add(btn_a3);
+		frmCinemaView.getContentPane().add(btn_a4);
+		frmCinemaView.getContentPane().add(btn_a5);	
+		frmCinemaView.getContentPane().add(btn_a6);	
+		frmCinemaView.getContentPane().add(btn_a7);
+		frmCinemaView.getContentPane().add(btn_a8);
+		frmCinemaView.getContentPane().add(btn_b1);	
+		frmCinemaView.getContentPane().add(btn_b2);
+		frmCinemaView.getContentPane().add(btn_b3);
+		frmCinemaView.getContentPane().add(btn_b4);
+		frmCinemaView.getContentPane().add(btn_b5);
+		frmCinemaView.getContentPane().add(btn_b6);
+		frmCinemaView.getContentPane().add(btn_b7);
+		frmCinemaView.getContentPane().add(btn_b8);
+		frmCinemaView.getContentPane().add(btn_c1);
+		frmCinemaView.getContentPane().add(btn_c2);
+		frmCinemaView.getContentPane().add(btn_c3);
+		frmCinemaView.getContentPane().add(btn_c4);
+		frmCinemaView.getContentPane().add(btn_c5);
+		frmCinemaView.getContentPane().add(btn_c6);
+		frmCinemaView.getContentPane().add(btn_c7);
+		frmCinemaView.getContentPane().add(btn_c8);
+		frmCinemaView.getContentPane().add(btn_d1);
+		frmCinemaView.getContentPane().add(btn_d2);
+		frmCinemaView.getContentPane().add(btn_d3);
+		frmCinemaView.getContentPane().add(btn_d4);
+		frmCinemaView.getContentPane().add(btn_d5);
+		frmCinemaView.getContentPane().add(btn_d6);
+		frmCinemaView.getContentPane().add(btn_d7);
+		frmCinemaView.getContentPane().add(btn_d8);
+		frmCinemaView.getContentPane().add(btn_e1);
+		frmCinemaView.getContentPane().add(btn_e2);
+		frmCinemaView.getContentPane().add(btn_e3);
+		frmCinemaView.getContentPane().add(btn_e4);
+		frmCinemaView.getContentPane().add(btn_e5);
+		frmCinemaView.getContentPane().add(btn_e6);
+		frmCinemaView.getContentPane().add(btn_e7);
+		frmCinemaView.getContentPane().add(btn_e8);
+		frmCinemaView.getContentPane().add(btn_f1);
+		frmCinemaView.getContentPane().add(btn_f2);
+		frmCinemaView.getContentPane().add(btn_f3);
+		frmCinemaView.getContentPane().add(btn_f4);
+		frmCinemaView.getContentPane().add(btn_f5);
+		frmCinemaView.getContentPane().add(btn_f6);
+		frmCinemaView.getContentPane().add(btn_f7);
+		frmCinemaView.getContentPane().add(btn_f8);
+		frmCinemaView.getContentPane().add(btn_g1);
+		frmCinemaView.getContentPane().add(btn_g2);
+		frmCinemaView.getContentPane().add(btn_g3);
+		frmCinemaView.getContentPane().add(btn_g4);
+		frmCinemaView.getContentPane().add(btn_g5);
+		frmCinemaView.getContentPane().add(btn_g6);
+		frmCinemaView.getContentPane().add(btn_g7);
+		frmCinemaView.getContentPane().add(btn_g8);
+		frmCinemaView.getContentPane().add(btnCancel);
+		frmCinemaView.getContentPane().add(lblNewLabel);
+		frmCinemaView.getContentPane().add(lblNewLabel_1);
+		frmCinemaView.getContentPane().add(lblNewLabel_1_1);
+		frmCinemaView.getContentPane().add(lblNewLabel_1_2);
+		frmCinemaView.getContentPane().add(lblNewLabel_1_3);
+		frmCinemaView.getContentPane().add(lblNewLabel_2);	
+		frmCinemaView.getContentPane().add(lblNewLabel_1_4);						
+		frmCinemaView.getContentPane().add(lblNewLabel_2_1);
+		frmCinemaView.getContentPane().add(lblNewLabel_3);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_1);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_2);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_3);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_4);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_5);
+		frmCinemaView.getContentPane().add(lblNewLabel_3_6);
 		
 		
 		//aalisin
@@ -349,12 +349,12 @@ public class CinemaView {
 			}
 		});
 		btnConfirm.setBounds(552, 650, 119, 48);
-		frmSecondView.getContentPane().add(btnConfirm);
+		frmCinemaView.getContentPane().add(btnConfirm);
 		JLabel seatPlan = new JLabel("");
 		seatPlan.setIcon(new ImageIcon(CinemaView.class.getResource("/images/YACCKK_bg.png")));
 		seatPlan.setSize(300,300);
 		seatPlan.setBounds(0, 0, 671, 716);
-		frmSecondView.getContentPane().add(seatPlan);
+		frmCinemaView.getContentPane().add(seatPlan);
 		
 		
 		btnCancel.addActionListener(new ActionListener() {
