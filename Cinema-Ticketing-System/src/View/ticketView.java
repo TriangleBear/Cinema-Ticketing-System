@@ -9,7 +9,7 @@ import java.awt.Font;
 
 public class ticketView {
 
-    private JFrame frame;
+    private JFrame frmTicketView;
 
     /**
      * Launch the application.
@@ -19,7 +19,7 @@ public class ticketView {
             public void run() {
                 try {
                     ticketView window = new ticketView();
-                    window.frame.setVisible(true);
+                    window.frmTicketView.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -33,53 +33,63 @@ public class ticketView {
     public ticketView() {
         initialize();
     }
-
     /**
      * Initialize the contents of the frame.
      */
     private void initialize() {
-        frame = new JFrame();
-        frame.setBounds(100, 100, 1168, 491);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
+        frmTicketView = new JFrame();
+        frmTicketView.setBounds(100, 100, 1168, 491);
+        frmTicketView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frmTicketView.getContentPane().setLayout(null);
         
-        JLabel lblNewLabel_1 = new JLabel("DATE : ");
-        lblNewLabel_1.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
-        lblNewLabel_1.setBounds(121, 271, 96, 34);
-        frame.getContentPane().add(lblNewLabel_1);
         
-        JLabel lblNewLabel_2 = new JLabel("TITLE:");
-        lblNewLabel_2.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
-        lblNewLabel_2.setBounds(478, 58, 80, 34);
-        frame.getContentPane().add(lblNewLabel_2);
-        
-        JLabel lblTitle = new JLabel("");
-        lblTitle.setBounds(488, 103, 259, 59);
-        frame.getContentPane().add(lblTitle);
-        
-        JLabel lblDate = new JLabel("");
-        lblDate.setBounds(187, 271, 231, 34);
-        frame.getContentPane().add(lblDate);
-        
-        JLabel lblNewLabel_3 = new JLabel("Seat :");
-        lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblNewLabel_3.setBounds(478, 253, 71, 24);
-        frame.getContentPane().add(lblNewLabel_3);
-        
-        JLabel lblNewLabel_3_1 = new JLabel("Price :");
-        lblNewLabel_3_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblNewLabel_3_1.setBounds(478, 307, 71, 24);
-        frame.getContentPane().add(lblNewLabel_3_1);
-        
-        JLabel lblNewLabel_3_1_1 = new JLabel("Time :");
-        lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        lblNewLabel_3_1_1.setBounds(478, 355, 71, 24);
-        frame.getContentPane().add(lblNewLabel_3_1_1);
-        
+        //labels
+        JLabel setTitle = new JLabel("TITLE:");
+        JLabel setlblTitle = new JLabel("");
+        JLabel lblDate = new JLabel("DATE : ");
+        JLabel setlblDate = new JLabel("");
+        JLabel lblSeat = new JLabel("Seat :");
+        JLabel setlblSeat = new JLabel("");
+        JLabel lblPrice = new JLabel("Price :");
+        JLabel setlblPrice = new JLabel("");
+        JLabel lblTime = new JLabel("Time :");
+        JLabel setlblTime = new JLabel("");
         JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon(ticketView.class.getResource("/images/TicketGUI.png")));
+        
+        
+        //content panes
+        frmTicketView.getContentPane().add(lblDate);
+        frmTicketView.getContentPane().add(setTitle);
+        frmTicketView.getContentPane().add(setlblTitle);
+        frmTicketView.getContentPane().add(setlblDate);
+        frmTicketView.getContentPane().add(lblSeat);
+        frmTicketView.getContentPane().add(lblPrice);
+        frmTicketView.getContentPane().add(lblTime);
+        frmTicketView.getContentPane().add(setlblSeat);
+        frmTicketView.getContentPane().add(setlblPrice);
+        frmTicketView.getContentPane().add(setlblTime);
+        frmTicketView.getContentPane().add(lblNewLabel);
+        
+        //set icon
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\TicketGUI.png"));
+        
+        //set bounds
+        lblDate.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+        lblDate.setBounds(121, 271, 96, 34);
+        setTitle.setFont(new Font("Segoe UI Black", Font.BOLD, 18));
+        setTitle.setBounds(478, 58, 80, 34);
+        setlblTitle.setBounds(488, 103, 259, 59);
+        setlblDate.setBounds(187, 271, 231, 34);
+        lblSeat.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblSeat.setBounds(478, 253, 71, 24);
+        lblPrice.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblPrice.setBounds(478, 307, 71, 24);
+        lblTime.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblTime.setBounds(478, 355, 71, 24);
+        setlblSeat.setBounds(537, 253, 231, 24);
+        setlblPrice.setBounds(537, 307, 231, 24);
+        setlblTime.setBounds(537, 355, 231, 24);
         lblNewLabel.setBounds(-74, 0, 1285, 452);
-        frame.getContentPane().add(lblNewLabel);
+        
     }
-
 }

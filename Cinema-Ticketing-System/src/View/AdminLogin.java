@@ -57,30 +57,42 @@ public class AdminLogin {
 		loginFrame.setLocationRelativeTo(null);
 		loginFrame.getContentPane().setLayout(null);
 		
+		//labels, buttons,text
 		JLabel lblUsername = new JLabel("Username:");
+		JLabel lblPassword = new JLabel("Password:");
+		JButton btnLogin = new JButton("Login");
+		JButton btnCancel = new JButton("Cancel");
+		txtFieldUsername = new JTextField();
+		passwordField = new JPasswordField();
+		
+		
+		//content panes
+		loginFrame.getContentPane().add(lblUsername);
+		loginFrame.getContentPane().add(lblPassword);
+		loginFrame.getContentPane().add(txtFieldUsername);
+		loginFrame.getContentPane().add(passwordField);
+		loginFrame.getContentPane().add(btnLogin);
+		loginFrame.getContentPane().add(btnCancel);
+		
+		//set bounds
+		
 		lblUsername.setBounds(63, 69, 109, 27);
 		lblUsername.setForeground(Color.WHITE);
 		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		loginFrame.getContentPane().add(lblUsername);
-		
-		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(70, 138, 102, 27);
 		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 22));
-		loginFrame.getContentPane().add(lblPassword);
-		
-		txtFieldUsername = new JTextField();
 		txtFieldUsername.setBounds(182, 57, 219, 39);
 		txtFieldUsername.setColumns(10);
-		loginFrame.getContentPane().add(txtFieldUsername);
-		
-		passwordField = new JPasswordField();
 		passwordField.setBounds(182, 126, 219, 39);
-		loginFrame.getContentPane().add(passwordField);
-		
-		JButton btnLogin = new JButton("Login");
 		btnLogin.setEnabled(false);
 		btnLogin.setBounds(63, 225, 128, 39);
+		btnLogin.setBackground(SystemColor.inactiveCaption);
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCancel.setBounds(283, 225, 128, 39);
+		btnCancel.setBackground(SystemColor.inactiveCaption);
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		
 		txtFieldUsername.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -91,6 +103,7 @@ public class AdminLogin {
 				}
 			}
 		});
+		
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String validUsername = "admin";
@@ -108,12 +121,6 @@ public class AdminLogin {
 			}
 		});
 		
-		btnLogin.setBackground(SystemColor.inactiveCaption);
-		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		loginFrame.getContentPane().add(btnLogin);
-		
-		JButton btnCancel = new JButton("Cancel");
-		btnCancel.setBounds(283, 225, 128, 39);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loginFrame.setVisible(false);
@@ -121,9 +128,8 @@ public class AdminLogin {
 				main.frmMainview.setVisible(true);
 			}
 		});
-		btnCancel.setBackground(SystemColor.inactiveCaption);
-		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		loginFrame.getContentPane().add(btnCancel);
+	
+		
 		
 		
 		
