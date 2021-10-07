@@ -6,12 +6,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class MainView {
 
 	JFrame frmMainview;
-	
-	//private final JLabel lblBackground = new JLabel("");
 
 	/**
 	 * Launch the application.
@@ -41,6 +40,8 @@ public class MainView {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		//JFRAME
 		frmMainview = new JFrame();
 		frmMainview.setResizable(false);
 		frmMainview.setTitle("MainView");
@@ -50,7 +51,11 @@ public class MainView {
 		frmMainview.setLocationRelativeTo(null);
 		frmMainview.getContentPane().setLayout(null);
 		
+		//Admin Button
 		JButton btnAdmin = new JButton("Admin");
+		btnAdmin.setBackground(Color.BLACK);
+		btnAdmin.setForeground(Color.WHITE);
+		btnAdmin.setBounds(1298, 0, 128, 32);
 		btnAdmin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMainview.setVisible(false);
@@ -58,57 +63,62 @@ public class MainView {
 				admin.loginFrame.setVisible(true);
 			}
 		});
-		btnAdmin.setBounds(1298, 0, 128, 32);
-		frmMainview.getContentPane().add(btnAdmin);
 		
-		JButton btnNewButton = new JButton("Cinema 1");
-		btnNewButton.addActionListener(new ActionListener() {
+		
+		//Cinema1 Button
+		JButton btnCinema1 = new JButton("Cinema 1");
+		btnCinema1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmMainview.setVisible(false);
 				CinemaView cinemaView = new CinemaView();
 				cinemaView.frmSecondView.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(22, 92, 335, 467);
+		btnCinema1.setBounds(174, 238, 225, 305);
 		try {
-		    btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema11.jpg")));
+		    btnCinema1.setIcon(new ImageIcon(MainView.class.getResource("/images/endgame.jpg")));
 		  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
-		frmMainview.getContentPane().add(btnNewButton);
 		
-		JButton btnNewButton_2 = new JButton("Cinema 2");
-		btnNewButton_2.setBounds(367, 92, 335, 467);
+		//Cinema2 Button
+		JButton btnCinema2 = new JButton("Cinema 2");
+		btnCinema2.setBounds(447, 238, 231, 305);
 		try {
-		    btnNewButton_2.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema22.jpg")));
+		    btnCinema2.setIcon(new ImageIcon(MainView.class.getResource("/images/fivefeetapart.jpg")));
 		  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
-		frmMainview.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton3 = new JButton("Cinema 3");
-		btnNewButton3.setBounds(712, 92, 335, 467);
+		//Cinema3 Button
+		JButton btnCinema3 = new JButton("Cinema 3");
+		btnCinema3.setBounds(721, 238, 225, 305);
 		try {
-		    btnNewButton3.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema33.jpg")));
+		    btnCinema3.setIcon(new ImageIcon(MainView.class.getResource("/images/conjuring.jpg")));
 		  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
-		frmMainview.getContentPane().add(btnNewButton3);
 		
-		JButton btnNewButton4 = new JButton("Cinema 4");
-		btnNewButton4.setBounds(1057, 92, 335, 467);
+		//Cinema4 Button
+		JButton btnCinema4 = new JButton("Cinema 4");
+		btnCinema4.setBounds(994, 238, 225, 305);
 		try {
-		    btnNewButton4.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema44.jpg")));
+		    btnCinema4.setIcon(new ImageIcon(MainView.class.getResource("/images/whitechicks.jpg")));
 		  } catch (Exception ex) {
 		    System.out.println(ex);
 		  }
-		frmMainview.getContentPane().add(btnNewButton4);
 		
+		//Label Background
 		JLabel lblBackground = new JLabel("");
-		frmMainview.getContentPane().add(lblBackground);
-		lblBackground.setIcon(new ImageIcon(MainView.class.getResource("/images/CURTAIN.jpg")));
+		lblBackground.setIcon(new ImageIcon(MainView.class.getResource("/images/HomeView.png")));
 		lblBackground.setSize(1000,600);
 		lblBackground.setBounds(0, 0, 1426, 645);
+		
+		frmMainview.getContentPane().add(btnCinema1);
+		frmMainview.getContentPane().add(btnCinema2);
+		frmMainview.getContentPane().add(btnCinema3);
+		frmMainview.getContentPane().add(btnCinema4);
+		frmMainview.getContentPane().add(btnAdmin);
 		frmMainview.getContentPane().add(lblBackground);
 		
 	}
