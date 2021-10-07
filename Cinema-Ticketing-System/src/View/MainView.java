@@ -53,19 +53,19 @@ public class MainView {
         
         //interface
         JButton btnAdmin = new JButton("Admin");
-        JButton btnNewButton = new JButton("Cinema 1");
-        JButton btnNewButton_2 = new JButton("Cinema 2");
-        JButton btnNewButton3 = new JButton("Cinema 3");
-        JButton btnNewButton4 = new JButton("Cinema 4");
+        JButton btnNewButton = new JButton("");
+        JButton btnNewButton_2 = new JButton("");
+        JButton btnNewButton3 = new JButton("");
+        JButton btnNewButton4 = new JButton("");
         JLabel lblBackground = new JLabel("");
         lblBackground.setSize(1000,600);
         
         // set bounds
         btnAdmin.setBounds(1298, 0, 128, 32);
-        btnNewButton.setBounds(22, 92, 335, 467);
-        btnNewButton_2.setBounds(367, 92, 335, 467);
-        btnNewButton3.setBounds(712, 92, 335, 467);
-        btnNewButton4.setBounds(1057, 92, 335, 467);
+        btnNewButton.setBounds(171, 233, 233, 315);
+        btnNewButton_2.setBounds(445, 233, 233, 315);
+        btnNewButton3.setBounds(718, 233, 233, 315);
+        btnNewButton4.setBounds(990, 233, 233, 315);
         lblBackground.setBounds(0, 0, 1426, 645);
         
         //content pane
@@ -77,11 +77,11 @@ public class MainView {
         frmMainview.getContentPane().add(lblBackground);
         
         //setIcons
-        btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema11.jpg")));
-        btnNewButton_2.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema22.jpg")));
-        btnNewButton3.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema33.jpg")));
-        btnNewButton4.setIcon(new ImageIcon(MainView.class.getResource("/images/cinema44.jpg")));    
-        lblBackground.setIcon(new ImageIcon(MainView.class.getResource("/images/CURTAIN.jpg")));
+        btnNewButton.setIcon(new ImageIcon(MainView.class.getResource("/images/endgame.jpg")));
+        btnNewButton_2.setIcon(new ImageIcon(MainView.class.getResource("/images/fivefeetapart.jpg")));
+        btnNewButton3.setIcon(new ImageIcon(MainView.class.getResource("/images/conjuring.jpg")));
+        btnNewButton4.setIcon(new ImageIcon(MainView.class.getResource("/images/whitechicks.jpg")));    
+        lblBackground.setIcon(new ImageIcon(MainView.class.getResource("/images/HomeView.png")));
         
         
         //lilipat mga to
