@@ -27,8 +27,8 @@ public class CinemaOneController{
     		info.lblMovieTitle.setText("Avengers: END GAME");
     		String cinema = "Avengers";
     		try {
-				Ticket ticket2 = new Ticket(cinema, null, null, null, 0);
-				System.out.println(ticket2.getTicket());
+				Ticket ticket2 = new Ticket(null, cinema, null, null, 0);
+				System.out.println(ticket2.getCinema());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

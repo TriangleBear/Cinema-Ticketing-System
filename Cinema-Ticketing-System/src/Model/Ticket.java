@@ -3,7 +3,7 @@ import java.util.Observable;
 public class Ticket extends Observable
 {
     private static String ticketNumber;
-    private String cinemaNumber;
+    private static String cinemaNumber;
     private static String movieTime;
     private static  String cinemaSeat;
     private int price = 250;
@@ -25,10 +25,10 @@ public class Ticket extends Observable
     public static String getSeat(){
         return cinemaSeat;
     }
-    public String getCinema(){
+    public static String getCinema(){
         return cinemaNumber;
     }
-    public String getTime(){
+    public static String getTime(){
         return movieTime;
     }
     public int getPrice() {

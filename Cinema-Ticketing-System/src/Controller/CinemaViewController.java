@@ -17,8 +17,8 @@ public class CinemaViewController{
 	
 	
 	//Constructor
-	public CinemaViewController(Ticket ticket, MainView main, JFrame app){
-		this.ticket = ticket;
+	public CinemaViewController(Ticket Ticket, MainView main, JFrame app){
+		this.ticket = Ticket;
 		this.main = main;
 		this.app = app;
 	}
@@ -66,8 +66,8 @@ public class CinemaViewController{
                  	ticketView print = new ticketView();
                  	print.frmTicketView.setVisible(true);
                  	System.out.println(select);
-                 	System.out.println(ticket.getTicket());
-                 	System.out.println(ticket.getTime());
+                 	System.out.println(Ticket.getCinema());
+                 	System.out.println(Ticket.getTime());
                  }else
                 	{
                    CinemaView.frmCinemaView.setVisible(true);

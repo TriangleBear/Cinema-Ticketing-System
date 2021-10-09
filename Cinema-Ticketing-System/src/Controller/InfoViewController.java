@@ -42,17 +42,17 @@ public class InfoViewController implements ActionListener{
     public void confirm() {
         CinemaView cinema = new CinemaView();
         cinema.frmCinemaView.setVisible(true);
-        System.out.println(Ticket.getTicket());
+        String cinematype = Ticket.getCinema();
         InfoView.frmInfoView.dispose();
         MainView.frmMainView.dispose();
         String time = String.valueOf(comboBoxTime.getSelectedItem());
         try {
-			Ticket ticket2 = new Ticket(null, null, null, time, 0);
-			System.out.println(ticket2.getTime());
-		} catch (NullPointerException a) {
-			// TODO Auto-generated catch block
-			System.out.println("ayaw gumana");
-		}
+            Ticket ticket2 = new Ticket(null, cinematype, null, time, 0);
+            System.out.println(ticket2.getTime());
+        } catch (NullPointerException a) {
+            // TODO Auto-generated catch block
+            System.out.println("ayaw gumana");
+        }
     }
 	
 	public static class Cancel implements MouseListener {
