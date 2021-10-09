@@ -84,7 +84,6 @@ public class InfoView {
 		btnDateConfirm.addActionListener( new InfoViewController(ticket, btnDateConfirm, comboBoxTime));
 		comboBoxTime.addActionListener(new InfoViewController (ticket, btnDateConfirm, comboBoxTime));
 		
-		ticket.setDate(lblDateNow.getText().toString());
 		btndateCancel.addMouseListener(new InfoViewController.Cancel());
 		lblMovieTitle.addMouseListener(new CinemaOneController.CinemaOne());
 		
