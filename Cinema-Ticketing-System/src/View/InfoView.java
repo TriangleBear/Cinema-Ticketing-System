@@ -18,12 +18,12 @@ public class InfoView {
 	private Ticket ticket;
 	private JButton btnDateConfirm;
 	public static JComboBox comboBoxTime;
+	public static String lblDateNow;
 	public static JLabel lblMovieTitle;
 
 	public InfoView() {
 		
 		String [] time = {"Select time","10:00am - 11:30am" , "2:00pm - 3:30pm","5:00pm - 6:30pm","8:00pm-9:30pm"};
-		
 		//frame
 		frmInfoView = new JFrame();
 		frmInfoView.setTitle("Movie Times");
@@ -84,7 +84,7 @@ public class InfoView {
 		btnDateConfirm.addActionListener( new InfoViewController(ticket, btnDateConfirm, comboBoxTime));
 		comboBoxTime.addActionListener(new InfoViewController (ticket, btnDateConfirm, comboBoxTime));
 		
-		
+		ticket.setDate(lblDateNow.getText().toString());
 		btndateCancel.addMouseListener(new InfoViewController.Cancel());
 		lblMovieTitle.addMouseListener(new CinemaOneController.CinemaOne());
 		

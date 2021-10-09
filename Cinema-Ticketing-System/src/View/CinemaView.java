@@ -382,6 +382,14 @@ public class CinemaView {
 		//actions
 		btnCancel.addMouseListener(new CinemaViewController.Cancel());
 		btnConfirm.addMouseListener(new CinemaViewController.Confirm());
-		btn_a1.addItemListener(new CinemaViewController.toggle());	
+		btn_a1.addItemListener(new CinemaViewController.toggleA1());
+		btn_a2.addItemListener(new CinemaViewController.toggleA2());
+		btn_a3.addItemListener(new CinemaViewController.toggleA3());
+		btn_a4.addItemListener(new CinemaViewController.toggleA4());
+		btn_a5.addItemListener(new CinemaViewController.toggleA5());
+		btn_a6.addItemListener(new CinemaViewController.toggleA6());
+		btn_a7.addItemListener(new CinemaViewController.toggleA7());
+		btn_a8.addItemListener(new CinemaViewController.toggleA8());
+		
 	}
 }

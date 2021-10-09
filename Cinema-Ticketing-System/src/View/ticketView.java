@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import Controller.CinemaViewController;
+import Model.Ticket;
 
 import javax.swing.ImageIcon;
 import java.awt.Font;
@@ -14,7 +15,6 @@ import javax.swing.JButton;
 public class ticketView {
 
 	public static JFrame frmTicketView;
-
 	/**
 	 * Create the application.
 	 */
@@ -27,11 +27,11 @@ public class ticketView {
         frmTicketView.setLocationRelativeTo(null);
         
         //labels and button
-        JLabel setlblTitle = new JLabel("");
-        JLabel setlblDate = new JLabel("");
+        JLabel setlblTitle = new JLabel(Ticket.getCinema().toString());
+        JLabel setlblDate = new JLabel();
         JLabel setlblSeat = new JLabel("");
         JLabel setlblPrice = new JLabel("");
-        JLabel setlblTime = new JLabel("");
+        JLabel setlblTime = new JLabel(Ticket.getTime().toString());
         JLabel setlblCinema = new JLabel("");
         JButton btnPrint = new JButton("Print");
         JLabel lblNewLabel = new JLabel("");
