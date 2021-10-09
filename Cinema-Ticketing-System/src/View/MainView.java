@@ -17,7 +17,7 @@ public class MainView {
     public static JFrame frmMainView;
     private JButton btnAdmin;
 
-    public MainView() {
+    public MainView(){
   
         frmMainView = new JFrame();
         frmMainView.setResizable(false);
@@ -29,11 +29,16 @@ public class MainView {
         frmMainView.getContentPane().setLayout(null);
         
         //interface
+        //all GIF paths are temporary
         JButton btnAdmin = new JButton("Admin");
         JButton btnCinemaOne = new JButton("");
+        btnCinemaOne.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/ave.gif")));
         JButton btnCinemaTwo = new JButton("");
+        btnCinemaTwo.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/5FA.gif")));
         JButton btnCinemaThree = new JButton("");
+        btnCinemaThree.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/CGIF.gif")));
         JButton btnCinemaFour = new JButton("");
+        btnCinemaFour.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/WGIF.gif")));
         JLabel lblBackground = new JLabel("");
         
         //button Admin modifications
