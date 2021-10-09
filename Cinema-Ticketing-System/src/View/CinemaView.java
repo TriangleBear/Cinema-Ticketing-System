@@ -3,112 +3,94 @@ package View;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import Controller.*;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
 import java.awt.Color;
 
 
 public class CinemaView {
 
-	public JFrame frmCinemaView;
+	public static JFrame frmCinemaView;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CinemaView window = new CinemaView();
-					window.frmCinemaView.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
 	public CinemaView() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
 		frmCinemaView = new JFrame();
 		frmCinemaView.setTitle(
 				"                                                        "
 				+ "                                   "
 				+ "  Cinema");
-		frmCinemaView.setBounds(100, 100, 688, 737);
-		frmCinemaView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmCinemaView.setBounds(100, 100, 686, 737);
+		frmCinemaView.setResizable(false);
+		frmCinemaView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCinemaView.getContentPane().setLayout(null);
+		frmCinemaView.setLocationRelativeTo(null);
 		
+ 
 		//buttons
-		JButton btn_a1 = new JButton("");
-		JButton btn_a2 = new JButton("");
-		JButton btn_a3 = new JButton("");
-		JButton btn_a4 = new JButton("");
-		JButton btn_a5 = new JButton("");
-		JButton btn_a6 = new JButton("");
-		JButton btn_a7 = new JButton("");
-		JButton btn_a8 = new JButton("");
-		JButton btn_b1 = new JButton("");
-		JButton btn_b2 = new JButton("");
-		JButton btn_b3 = new JButton("");
-		JButton btn_b4 = new JButton("");
-		JButton btn_b5 = new JButton("");
-		JButton btn_b6 = new JButton("");
-		JButton btn_b7 = new JButton("");
-		JButton btn_b8 = new JButton("");
-		JButton btn_c1 = new JButton("");
-		JButton btn_c2 = new JButton("");
-		JButton btn_c3 = new JButton("");
-		JButton btn_c4 = new JButton("");
-		JButton btn_c5 = new JButton("");
-		JButton btn_c6 = new JButton("");
-		JButton btn_c7 = new JButton("");
-		JButton btn_c8 = new JButton("");
-		JButton btn_d1 = new JButton("");
-		JButton btn_d2 = new JButton("");
-		JButton btn_d3 = new JButton("");
-		JButton btn_d4 = new JButton("");
-		JButton btn_d5 = new JButton("");
-		JButton btn_d6 = new JButton("");
-		JButton btn_d7 = new JButton("");
-		JButton btn_d8 = new JButton("");
-		JButton btn_e1 = new JButton("");
-		JButton btn_e2 = new JButton("");
-		JButton btn_e3 = new JButton("");
-		JButton btn_e4 = new JButton("");
-		JButton btn_e5 = new JButton("");
-		JButton btn_e6 = new JButton("");
-		JButton btn_e7 = new JButton("");
-		JButton btn_e8 = new JButton("");
-		JButton btn_f1 = new JButton("");
-		JButton btn_f2 = new JButton("");
-		JButton btn_f3 = new JButton("");
-		JButton btn_f4 = new JButton("");
-		JButton btn_f5 = new JButton("");
-		JButton btn_f6 = new JButton("");
-		JButton btn_f7 = new JButton("");
-		JButton btn_f8 = new JButton("");
-		JButton btn_g1 = new JButton("");
-		JButton btn_g2 = new JButton("");
-		JButton btn_g3 = new JButton("");
-		JButton btn_g4 = new JButton("");
-		JButton btn_g5 = new JButton("");
-		JButton btn_g6 = new JButton("");
-		JButton btn_g7 = new JButton("");
-		JButton btn_g8 = new JButton("");
+		JToggleButton btn_a1 = new JToggleButton("");
+		JToggleButton btn_a2 = new JToggleButton("");
+		JToggleButton btn_a3 = new JToggleButton("");
+		JToggleButton btn_a4 = new JToggleButton("");
+		JToggleButton btn_a5 = new JToggleButton("");
+		JToggleButton btn_a6 = new JToggleButton("");
+		JToggleButton btn_a7 = new JToggleButton("");
+		JToggleButton btn_a8 = new JToggleButton("");
+		JToggleButton btn_b1 = new JToggleButton("");
+		JToggleButton btn_b2 = new JToggleButton("");
+		JToggleButton btn_b3 = new JToggleButton("");
+		JToggleButton btn_b4 = new JToggleButton("");
+		JToggleButton btn_b5 = new JToggleButton("");
+		JToggleButton btn_b6 = new JToggleButton("");
+		JToggleButton btn_b7 = new JToggleButton("");
+		JToggleButton btn_b8 = new JToggleButton("");
+		JToggleButton btn_c1 = new JToggleButton("");
+		JToggleButton btn_c2 = new JToggleButton("");
+		JToggleButton btn_c3 = new JToggleButton("");
+		JToggleButton btn_c4 = new JToggleButton("");
+		JToggleButton btn_c5 = new JToggleButton("");
+		JToggleButton btn_c6 = new JToggleButton("");
+		JToggleButton btn_c7 = new JToggleButton("");
+		JToggleButton btn_c8 = new JToggleButton("");
+		JToggleButton btn_d1 = new JToggleButton("");
+		JToggleButton btn_d2 = new JToggleButton("");
+		JToggleButton btn_d3 = new JToggleButton("");
+		JToggleButton btn_d4 = new JToggleButton("");
+		JToggleButton btn_d5 = new JToggleButton("");
+		JToggleButton btn_d6 = new JToggleButton("");
+		JToggleButton btn_d7 = new JToggleButton("");
+		JToggleButton btn_d8 = new JToggleButton("");
+		JToggleButton btn_e1 = new JToggleButton("");
+		JToggleButton btn_e2 = new JToggleButton("");
+		JToggleButton btn_e3 = new JToggleButton("");
+		JToggleButton btn_e4 = new JToggleButton("");
+		JToggleButton btn_e5 = new JToggleButton("");
+		JToggleButton btn_e6 = new JToggleButton("");
+		JToggleButton btn_e7 = new JToggleButton("");
+		JToggleButton btn_e8 = new JToggleButton("");
+		JToggleButton btn_f1 = new JToggleButton("");
+		JToggleButton btn_f2 = new JToggleButton("");
+		JToggleButton btn_f3 = new JToggleButton("");
+		JToggleButton btn_f4 = new JToggleButton("");
+		JToggleButton btn_f5 = new JToggleButton("");
+		JToggleButton btn_f6 = new JToggleButton("");
+		JToggleButton btn_f7 = new JToggleButton("");
+		JToggleButton btn_f8 = new JToggleButton("");
+		JToggleButton btn_g1 = new JToggleButton("");
+		JToggleButton btn_g2 = new JToggleButton("");
+		JToggleButton btn_g3 = new JToggleButton("");
+		JToggleButton btn_g4 = new JToggleButton("");
+		JToggleButton btn_g5 = new JToggleButton("");
+		JToggleButton btn_g6 = new JToggleButton("");
+		JToggleButton btn_g7 = new JToggleButton("");
+		JToggleButton btn_g8 = new JToggleButton("");
 		JButton btnConfirm = new JButton("Confirm");
 		JButton btnCancel = new JButton("Cancel");
+		JLabel seatPlan = new JLabel("");
+		seatPlan.setForeground(Color.YELLOW);
+		seatPlan.setBackground(Color.YELLOW);
 		
 		//labels
 		JLabel lblNewLabel = new JLabel("A");
@@ -128,6 +110,62 @@ public class CinemaView {
 		JLabel lblNewLabel_3_6 = new JLabel("8");
 		
 		//set bounds, set icons, set backgrounds
+		btn_a1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_a8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_b8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_c8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_d8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_e8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_f8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g2.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g3.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g4.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g5.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g6.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g7.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
+		btn_g8.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
 		btn_a1.setBackground(new Color(222, 184, 135));
 		btn_a1.setIcon(new ImageIcon(CinemaView.class.getResource("/images/iconSeat.png")));
 		btn_a1.setBounds(154, 258, 46, 39);
@@ -257,17 +295,12 @@ public class CinemaView {
 		lblNewLabel_3_4.setBounds(392, 233, 18, 14);
 		lblNewLabel_3_5.setBounds(437, 233, 18, 14);
 		lblNewLabel_3_6.setBounds(485, 233, 18, 14);
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		btnConfirm.setBounds(552, 650, 119, 48);
+		seatPlan.setIcon(new ImageIcon(CinemaView.class.getResource("/images/YACCKK_bg.png")));
+		seatPlan.setSize(300,300);
+		seatPlan.setBounds(0, 0, 671, 716);
+
 		//content panes
-		
 		frmCinemaView.getContentPane().add(btn_a1);
 		frmCinemaView.getContentPane().add(btn_a2);
 		frmCinemaView.getContentPane().add(btn_a3);
@@ -340,27 +373,12 @@ public class CinemaView {
 		frmCinemaView.getContentPane().add(lblNewLabel_3_4);
 		frmCinemaView.getContentPane().add(lblNewLabel_3_5);
 		frmCinemaView.getContentPane().add(lblNewLabel_3_6);
-		
-		
-		//aalisin
-		
-		btnConfirm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnConfirm.setBounds(552, 650, 119, 48);
 		frmCinemaView.getContentPane().add(btnConfirm);
-		JLabel seatPlan = new JLabel("");
-		seatPlan.setIcon(new ImageIcon(CinemaView.class.getResource("/images/YACCKK_bg.png")));
-		seatPlan.setSize(300,300);
-		seatPlan.setBounds(0, 0, 671, 716);
 		frmCinemaView.getContentPane().add(seatPlan);
 		
-		
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnCancel.addMouseListener(new CinemaViewController.Cancel());
+		btnConfirm.addMouseListener(new CinemaViewController.Confirm());
 		
 	}
+	
 }

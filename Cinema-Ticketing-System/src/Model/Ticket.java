@@ -12,6 +12,7 @@ public class Ticket extends Observable
         this.movieTitle = Title;
         this.movieTime = Time;
     }
+    
     private void ticketChanged(){
         setChanged();
         notifyObservers();
