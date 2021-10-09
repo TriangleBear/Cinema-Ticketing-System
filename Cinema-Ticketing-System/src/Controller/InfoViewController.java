@@ -12,40 +12,48 @@ import Model.*;
 import View.*;
 
 public class InfoViewController implements ActionListener{
-	
-	private Ticket ticket;
-	private MainView main;
-	private JFrame app;
-	private JButton btnDateConfirm;
-	private JComboBox comboBoxTime;
+    
+    private Ticket ticket;
+    private MainView main;
+    private JFrame app;
+    private JButton btnDateConfirm;
+    private JComboBox comboBoxTime;
 	
 	//Constructor
-	public InfoViewController(Ticket Ticket, JButton btnDateConfirm, JComboBox comboBoxTime ) {
-		this.ticket = Ticket;
-		this.btnDateConfirm = btnDateConfirm;
-		this.comboBoxTime = comboBoxTime;
-	}
-	
-	public void actionPerformed(ActionEvent ae){
-		int selectedChoice = comboBoxTime.getSelectedIndex();
-		if (selectedChoice == 0) {
-		btnDateConfirm.setEnabled(false);
+    public InfoViewController(Ticket Ticket, JButton btnDateConfirm, JComboBox comboBoxTime ) {
+        this.ticket = Ticket;
+        this.btnDateConfirm = btnDateConfirm;
+        this.comboBoxTime = comboBoxTime;
+    }
+    
+    public void actionPerformed(ActionEvent ae){
+        int selectedChoice = comboBoxTime.getSelectedIndex();
+        if (selectedChoice == 0) {
+        btnDateConfirm.setEnabled(false);
+        }
+        else btnDateConfirm.setEnabled(true);
+        
+        if(btnDateConfirm.getModel().isArmed()){
+            confirm();
+        }
+        
+            
+    }
+    public void confirm() {
+        CinemaView cinema = new CinemaView();
+        cinema.frmCinemaView.setVisible(true);
+        System.out.println(Ticket.getTicket());
+        InfoView.frmInfoView.dispose();
+        MainView.frmMainView.dispose();
+        String time = String.valueOf(comboBoxTime.getSelectedItem());
+        try {
+			Ticket ticket2 = new Ticket(null, null, null, time, 0);
+			System.out.println(ticket2.getTime());
+		} catch (NullPointerException a) {
+			// TODO Auto-generated catch block
+			System.out.println("ayaw gumana");
 		}
-		else btnDateConfirm.setEnabled(true);
-		
-		if(btnDateConfirm.getModel().isArmed()){
-		confirm();
-		}
-		
-	}
-	
-	public void confirm() {
-		CinemaView cinema = new CinemaView();
-    	cinema.frmCinemaView.setVisible(true);
-    	InfoView.frmInfoView.dispose();
-    	MainView.frmMainView.dispose();
-	}
-
+    }
 	
 	public static class Cancel implements MouseListener {
 
@@ -74,8 +82,6 @@ public class InfoViewController implements ActionListener{
         public void mouseExited(MouseEvent e) {
 
         }
-    }
-	
-	
 
+}
 }

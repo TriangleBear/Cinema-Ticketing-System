@@ -1,18 +1,14 @@
 package View;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-import View.*;
 import Controller.*;
 import Model.*;
 
@@ -21,7 +17,7 @@ public class InfoView {
 	public static JFrame frmInfoView;
 	private Ticket ticket;
 	private JButton btnDateConfirm;
-	private JComboBox comboBoxTime;
+	public static JComboBox comboBoxTime;
 	public static JLabel lblMovieTitle;
 
 	public InfoView() {

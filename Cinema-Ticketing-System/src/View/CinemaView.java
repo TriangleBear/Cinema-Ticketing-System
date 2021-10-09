@@ -1,21 +1,19 @@
 package View;
 
-import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
 import Controller.*;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.event.ItemListener;
 
 
 public class CinemaView {
 
 	public static JFrame frmCinemaView;
-
 	public CinemaView() {
 		frmCinemaView = new JFrame();
 		frmCinemaView.setTitle(
@@ -23,12 +21,11 @@ public class CinemaView {
 				+ "                                   "
 				+ "  Cinema");
 		frmCinemaView.setBounds(100, 100, 686, 737);
-		frmCinemaView.setResizable(false);
 		frmCinemaView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmCinemaView.getContentPane().setLayout(null);
 		frmCinemaView.setLocationRelativeTo(null);
+		frmCinemaView.setResizable(false);
 		
- 
 		//buttons
 		JToggleButton btn_a1 = new JToggleButton("");
 		JToggleButton btn_a2 = new JToggleButton("");
@@ -92,6 +89,9 @@ public class CinemaView {
 		seatPlan.setForeground(Color.YELLOW);
 		seatPlan.setBackground(Color.YELLOW);
 		
+		
+		
+		
 		//labels
 		JLabel lblNewLabel = new JLabel("A");
 		JLabel lblNewLabel_1 = new JLabel("B");
@@ -108,6 +108,7 @@ public class CinemaView {
 		JLabel lblNewLabel_3_4 = new JLabel("6");
 		JLabel lblNewLabel_3_5 = new JLabel("7");
 		JLabel lblNewLabel_3_6 = new JLabel("8");
+				
 		
 		//set bounds, set icons, set backgrounds
 		btn_a1.setSelectedIcon(new ImageIcon(CinemaView.class.getResource("/images/selectedSeat.png")));
@@ -299,7 +300,8 @@ public class CinemaView {
 		seatPlan.setIcon(new ImageIcon(CinemaView.class.getResource("/images/YACCKK_bg.png")));
 		seatPlan.setSize(300,300);
 		seatPlan.setBounds(0, 0, 671, 716);
-
+			
+		
 		//content panes
 		frmCinemaView.getContentPane().add(btn_a1);
 		frmCinemaView.getContentPane().add(btn_a2);
@@ -375,10 +377,11 @@ public class CinemaView {
 		frmCinemaView.getContentPane().add(lblNewLabel_3_6);
 		frmCinemaView.getContentPane().add(btnConfirm);
 		frmCinemaView.getContentPane().add(seatPlan);
+	
 		
+		//actions
 		btnCancel.addMouseListener(new CinemaViewController.Cancel());
 		btnConfirm.addMouseListener(new CinemaViewController.Confirm());
-		
+		btn_a1.addItemListener(new CinemaViewController.toggle());	
 	}
-	
 }

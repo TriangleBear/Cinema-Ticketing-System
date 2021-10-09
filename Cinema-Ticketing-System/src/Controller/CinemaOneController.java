@@ -1,37 +1,38 @@
 package Controller;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-
 import Model.*;
 import View.*;
 public class CinemaOneController{
-	private Ticket ticket;
+	private static Ticket ticket;
 	private MainView main;
 	private JFrame app;
-//	public static JLabel lblMovieTitle;
 	
 	//Constructor
 	public CinemaOneController(Ticket ticket, MainView main, JFrame app) {
 		this.ticket = ticket;
 		this.main = main;
 		this.app = app;
-	//	this.lblMovieTitle = lblMovieTitle;
-		
 	}
 
 
 
 	public static class CinemaOne implements MouseListener {
-		
+
         @Override
         public void mouseClicked(MouseEvent e) {
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
-    		info.lblMovieTitle.setText("Avengers: Endgame");
+    		info.lblMovieTitle.setText("Avengers: END GAME");
+    		String cinema = "Avengers";
+    		try {
+				Ticket ticket2 = new Ticket(cinema, null, null, null, 0);
+				System.out.println(ticket2.getTicket());
+			} catch (NullPointerException a) {
+				// TODO Auto-generated catch block
+				System.out.println("ayaw gumana");
+			}
         }
 
         @Override
