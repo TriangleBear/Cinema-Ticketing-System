@@ -27,8 +27,8 @@ public class InfoViewController implements ActionListener{
     }
     
     public void actionPerformed(ActionEvent ae){
-        int selectedChoice = comboBoxTime.getSelectedIndex();
-        if (selectedChoice == 0) {
+        String selectedChoice = comboBoxTime.getSelectedItem().toString();
+        if (selectedChoice == "") {
         btnDateConfirm.setEnabled(false);
         }
         else btnDateConfirm.setEnabled(true);
@@ -47,7 +47,7 @@ public class InfoViewController implements ActionListener{
         MainView.frmMainView.dispose();
         String time = String.valueOf(comboBoxTime.getSelectedItem());
         try {
-            Ticket ticket2 = new Ticket(null, cinematype, null, time, 0);
+            Ticket ticket2 = new Ticket(null, cinematype, null, time, null, 0);
             System.out.println(ticket2.getTime());
         } catch (NullPointerException a) {
             // TODO Auto-generated catch block

@@ -27,7 +27,7 @@ public class CinemaFourController {
     		info.lblMovieTitle.setText("White Chicks");
     		String cinema = "White Chicks";
     		try {
-				Ticket ticket2 = new Ticket(null, cinema, null, null, 0);
+				Ticket ticket2 = new Ticket(null, cinema, null, null, null, 0);
 				System.out.println(ticket2.getCinema());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
