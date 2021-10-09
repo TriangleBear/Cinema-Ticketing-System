@@ -5,14 +5,16 @@ public class Ticket extends Observable
     private static String ticketNumber;
     private static String cinemaNumber;
     private static String movieTime;
+    private static String dateNow;
     private static  String cinemaSeat;
     private int price = 250;
 
-    public Ticket(String tNumber, String cinema, String Seat, String Time, int price){
+    public Ticket(String tNumber, String cinema, String Seat, String Time, String Date, int price){
         this.ticketNumber = tNumber;
         this.cinemaNumber = cinema;
         this.cinemaSeat = Seat;
         this.movieTime = Time;
+        this.dateNow = Date;
         this.price = price;
     }
     private void ticketChanged(){
@@ -30,6 +32,9 @@ public class Ticket extends Observable
     }
     public static String getTime(){
         return movieTime;
+    }
+    public static String getDate() {
+    	return dateNow;
     }
     public int getPrice() {
         return price;
@@ -49,6 +54,10 @@ public class Ticket extends Observable
     public void setTime(String Time){
     this.movieTime = Time;
     ticketChanged();
+    }
+    public void setDate(String Date) {
+    	this.dateNow = Date;
+    	ticketChanged();
     }
     public void setPrice(int price) {
     this.price = price;
