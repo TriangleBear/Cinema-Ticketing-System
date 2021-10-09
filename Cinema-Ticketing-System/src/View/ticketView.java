@@ -29,7 +29,7 @@ public class ticketView {
         //labels and button
         JLabel setlblTitle = new JLabel(Ticket.getCinema().toString());
         JLabel setlblDate = new JLabel();
-        JLabel setlblSeat = new JLabel("");
+        JLabel setlblSeat = new JLabel(Ticket.getSeat());
         JLabel setlblPrice = new JLabel("");
         JLabel setlblTime = new JLabel(Ticket.getTime().toString());
         JLabel setlblCinema = new JLabel("");
