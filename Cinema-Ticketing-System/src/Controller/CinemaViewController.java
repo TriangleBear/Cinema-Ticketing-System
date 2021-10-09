@@ -16,6 +16,7 @@ public class CinemaViewController{
 	public static String select;
 	
 	
+	
 	//Constructor
 	public CinemaViewController(Ticket Ticket, MainView main, JFrame app){
 		this.ticket = Ticket;
@@ -133,11 +134,11 @@ public class CinemaViewController{
         }
 	}
 	public static class toggle implements ItemListener {
-	
+			
 		      public void itemStateChanged(ItemEvent itemEvent) {
 		        int state = itemEvent.getStateChange();
 		        if (state == ItemEvent.SELECTED) {
-		           select = "a1";
+		        	select = "a1";
 		        } else {
 		           select = "";
 		        }
