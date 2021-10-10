@@ -33,7 +33,7 @@ public class ticketView {
         JLabel setlblSeat = new JLabel(Ticket.getSeat());
         JLabel setlblTime = new JLabel(Ticket.getTime());
         JLabel setlblDate = new JLabel(Ticket.getDate());
-        JLabel setlblPrice = new JLabel("");
+        JLabel setlblPrice = new JLabel(String.valueOf(Ticket.getPrice()));
         JButton btnPrint = new JButton("Print");
         JLabel lblNewLabel = new JLabel("");
         

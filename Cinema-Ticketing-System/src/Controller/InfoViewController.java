@@ -18,7 +18,7 @@ public class InfoViewController implements ActionListener{
     private JFrame app;
     private JButton btnDateConfirm;
     private JComboBox comboBoxTime;
-	
+    
 	//Constructor
     public InfoViewController(Ticket Ticket, JButton btnDateConfirm, JComboBox comboBoxTime ) {
         this.ticket = Ticket;
@@ -44,19 +44,29 @@ public class InfoViewController implements ActionListener{
         cinema.frmCinemaView.setVisible(true);
         InfoView.frmInfoView.dispose();
         MainView.frmMainView.dispose();
+        String movieTitle = String.valueOf(ticket.getMovie());
+        String cinemaChoice =  String.valueOf(ticket.getCinema());
         String time = String.valueOf(comboBoxTime.getSelectedItem());
         InfoView Iview = new InfoView();
         String date = Iview.dtf.format(Iview.now).toString();
         try {
-            Ticket ticket2 = new Ticket(null,null, null, null, time, date, 0);
+            Ticket ticket2 = new Ticket(null,movieTitle, cinemaChoice, null, time, date, 0);
+            ticket2.setMovie(movieTitle);
+            ticket2.setCinema(cinemaChoice);
             ticket2.setTime(time);
             ticket2.setDate(date);
+            System.out.println(ticket2.getMovie());
+            System.out.println(ticket2.getCinema());
             System.out.println(ticket2.getTime());
             System.out.println(ticket2.getDate());
         } catch (NullPointerException a) {
             // TODO Auto-generated catch block
             System.out.println("ayaw gumana");
         }
+    }
+    
+    public void movieTitle() {
+    	
     }
 	
 	public static class Cancel implements MouseListener {

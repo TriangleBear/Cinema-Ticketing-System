@@ -17,6 +17,7 @@ public class CinemaViewController {
 	public static String cinema;
 	public static String Time;
 	public static String Date;
+	public static int Price = 250;
 	// Constructor
 	public CinemaViewController(Ticket ticket, MainView main, JFrame app) {
 		this.ticket = ticket;
@@ -62,21 +63,24 @@ public class CinemaViewController {
 			cinema = Ticket.getCinema();
 			Time = Ticket.getTime();
 			Date = Ticket.getDate();
+			//Price = Ticket.getPrice();
 			int result = JOptionPane.showConfirmDialog(app, "Are you sure on the Selected Seats?", "Swing Tester",
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 			
 			if (result == JOptionPane.YES_OPTION) {
-				Ticket ticket = new Ticket(null, movie, cinema, select, Time, Date, 0);
+				Ticket ticket = new Ticket(null, movie, cinema, select, Time, Date, 250);
 			ticket.setMovie(movie);
 			ticket.setCinema(cinema);
 			ticket.setSeat(select);
 			ticket.setTime(Time);
 			ticket.setDate(Date);
+			ticket.setPrice(Ticket.getPrice());
 				System.out.println(movie);
 				System.out.println(cinema);
 				System.out.println(select);
 				System.out.println(Time);
 				System.out.println(Date);
+				System.out.println(Price);
 				CinemaView.frmCinemaView.dispose();
 				ticketView ticketV = new ticketView();
 				ticketV.frmTicketView.setVisible(true);

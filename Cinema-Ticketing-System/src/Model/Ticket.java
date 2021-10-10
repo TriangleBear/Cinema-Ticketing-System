@@ -8,7 +8,7 @@ public class Ticket extends Observable
     private static String movieTime;
     private static String dateNow;
     private static String cinemaSeat;
-    private int price = 250;
+    private static int price = 250;
 
     public Ticket(String tNumber, String movie, String cinema, String Seat, String Time, String Date, int price){
         this.ticketNumber = tNumber;
@@ -41,7 +41,7 @@ public class Ticket extends Observable
     public static String getDate() {
     	return dateNow;
     }
-    public int getPrice() {
+    public static int getPrice() {
         return price;
     }
     public void setTicket(String tNumber){
@@ -57,20 +57,20 @@ public class Ticket extends Observable
         ticketChanged();
     }
     public void setSeat(String Seat){
-    this.cinemaSeat = Seat;
-    ticketChanged();
+	    this.cinemaSeat = Seat;
+	    ticketChanged();
     }
     
     public void setTime(String Time){
-    this.movieTime = Time;
-    ticketChanged();
+	    this.movieTime = Time;
+	    ticketChanged();
     }
     public void setDate(String Date) {
     	this.dateNow = Date;
     	ticketChanged();
     }
     public void setPrice(int price) {
-    this.price = price;
-    ticketChanged();
+	    this.price = price;
+	    ticketChanged();
     }
 }
