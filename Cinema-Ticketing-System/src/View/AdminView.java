@@ -14,7 +14,7 @@ import javax.swing.JButton;
 
 public class AdminView {
 
-	public static JFrame adminViewFrame;
+	public JFrame adminViewFrame;
 	private JTable cinemaOne;
 	private JTable cinemaTwo;
 	private JTable cinemaThree;

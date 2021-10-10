@@ -14,7 +14,8 @@ import javax.swing.JButton;
 
 public class ticketView {
 
-	public static JFrame frmTicketView;
+	public JFrame frmTicketView;
+	public Ticket ticket;
 	/**
 	 * Create the application.
 	 */
@@ -25,14 +26,14 @@ public class ticketView {
         frmTicketView.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frmTicketView.getContentPane().setLayout(null);
         frmTicketView.setLocationRelativeTo(null);
-        
+       
         //labels and button
-        JLabel setlblTitle = new JLabel(Ticket.getCinema().toString());
-        JLabel setlblDate = new JLabel();
+        JLabel setlblCinema = new JLabel(Ticket.getCinema());
+        JLabel setlblTitle = new JLabel(Ticket.getMovie());
         JLabel setlblSeat = new JLabel(Ticket.getSeat());
+        JLabel setlblTime = new JLabel(Ticket.getTime());
+        JLabel setlblDate = new JLabel(Ticket.getDate());
         JLabel setlblPrice = new JLabel("");
-        JLabel setlblTime = new JLabel(Ticket.getTime().toString());
-        JLabel setlblCinema = new JLabel("");
         JButton btnPrint = new JButton("Print");
         JLabel lblNewLabel = new JLabel("");
         

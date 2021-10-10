@@ -17,10 +17,11 @@ public class InfoView {
 	public static JFrame frmInfoView;
 	private Ticket ticket;
 	private JButton btnDateConfirm;
-	public static JComboBox comboBoxTime;
-	public static String lblDateNow;
-	public static JLabel lblMovieTitle;
-
+	public JComboBox comboBoxTime;
+	public String lblDateNow;
+	public JLabel lblMovieTitle;
+	public LocalDateTime now;
+	public DateTimeFormatter dtf;
 	public InfoView() {
 		
 		String [] time = {"Select time","10:00am - 11:30am" , "2:00pm - 3:30pm","5:00pm - 6:30pm","8:00pm-9:30pm"};
@@ -34,8 +35,8 @@ public class InfoView {
 		frmInfoView.setLocationRelativeTo(null);
 		
 		//time
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		LocalDateTime now = LocalDateTime.now();
+		dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		now = LocalDateTime.now();
 		
 		//GUI
 		lblMovieTitle = new JLabel("");
@@ -43,6 +44,7 @@ public class InfoView {
 		JLabel lblinfoviewDate = new JLabel("Date :");
 		JLabel lblDateNow = new JLabel(dtf.format(now));
 		comboBoxTime = new JComboBox(time);
+		
 		JButton btndateCancel = new JButton("Cancel");
 		btnDateConfirm = new JButton("Confirm");
 		JLabel lblHeader = new JLabel("Selected Movie:");
