@@ -5,13 +5,12 @@ import javax.swing.JFrame;
 import Model.*;
 import View.*;
 public class CinemaOneController{
-	private static Ticket ticket;
 	private MainView main;
 	private JFrame app;
-	
+	public static String cinema = "cinema1";
+	public static String movie = "Avengers";
 	//Constructor
-	public CinemaOneController(Ticket ticket, MainView main, JFrame app) {
-		this.ticket = ticket;
+	public CinemaOneController(MainView main, JFrame app) {
 		this.main = main;
 		this.app = app;
 	}
@@ -25,10 +24,12 @@ public class CinemaOneController{
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Avengers: END GAME");
-    		String cinema = "Avengers";
+			Ticket ticketC = new Ticket(null, movie, cinema, null, null, null, 0);
+			ticketC.setMovie(movie);
+    		ticketC.setCinema(cinema);
     		try {
-				Ticket ticket2 = new Ticket(null, cinema, null, null, null, 0);
-				System.out.println(ticket2.getCinema());
+				System.out.println(Ticket.getMovie());
+				System.out.println(Ticket.getCinema());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

@@ -42,13 +42,17 @@ public class InfoViewController implements ActionListener{
     public void confirm() {
         CinemaView cinema = new CinemaView();
         cinema.frmCinemaView.setVisible(true);
-        String cinematype = Ticket.getCinema();
         InfoView.frmInfoView.dispose();
         MainView.frmMainView.dispose();
         String time = String.valueOf(comboBoxTime.getSelectedItem());
+        InfoView Iview = new InfoView();
+        String date = Iview.dtf.format(Iview.now).toString();
         try {
-            Ticket ticket2 = new Ticket(null, cinematype, null, time, null, 0);
+            Ticket ticket2 = new Ticket(null,null, null, null, time, date, 0);
+            ticket2.setTime(time);
+            ticket2.setDate(date);
             System.out.println(ticket2.getTime());
+            System.out.println(ticket2.getDate());
         } catch (NullPointerException a) {
             // TODO Auto-generated catch block
             System.out.println("ayaw gumana");
@@ -60,7 +64,8 @@ public class InfoViewController implements ActionListener{
         @Override
         public void mouseClicked(MouseEvent e) {
         	InfoView.frmInfoView.dispose();
-        	MainView.frmMainView.setVisible(true);
+        	MainView Mview = new MainView();
+        	Mview.frmMainView.setVisible(true);
         }
 
         @Override

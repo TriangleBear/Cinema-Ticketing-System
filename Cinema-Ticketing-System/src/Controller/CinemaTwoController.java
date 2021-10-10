@@ -25,10 +25,12 @@ public class CinemaTwoController {
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Five Feet Apart");
-    		String cinema = "Five Feet Apart";
+    		String Cinema = "cinema2";
+    		String Movie = "Five Feet Apart";
     		try {
-				Ticket ticket2 = new Ticket(null, cinema, null, null, null, 0);
+				Ticket ticket2 = new Ticket(null, Movie, Cinema, null, null, null, 0);
 				System.out.println(ticket2.getCinema());
+				System.out.println(ticket2.getMovie());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

@@ -25,10 +25,12 @@ public class CinemaThreeController {
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("The Conjuring");
-    		String cinema = "Conjuring";
+    		String Cinema = "cinema3";
+    		String Movie = "Conjuring";
     		try {
-				Ticket ticket2 = new Ticket(null, cinema, null, null, null, 0);
+    			Ticket ticket2 = new Ticket(null, Movie, Cinema, null, null, null, 0);
 				System.out.println(ticket2.getCinema());
+				System.out.println(ticket2.getMovie());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

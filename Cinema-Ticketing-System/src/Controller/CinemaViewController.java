@@ -10,23 +10,26 @@ import Model.*;
 import View.*;
 
 public class CinemaViewController {
-	private static Ticket ticket;
-	private MainView main;
+	public Ticket ticket;
 	private static JFrame app;
 	public static String select;
-
+	public static String movie;
+	public static String cinema;
+	public static String Time;
+	public static String Date;
 	// Constructor
-	public CinemaViewController(Ticket Ticket, MainView main, JFrame app) {
-		this.ticket = Ticket;
-		this.main = main;
-		this.app = app;
+	public CinemaViewController(Ticket ticket, MainView main, JFrame app) {
+		this.ticket = ticket;
+		CinemaViewController.app = app;
 	}
 
 	public static class Cancel implements MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CinemaView.frmCinemaView.dispose();
+			CinemaView Cview = new CinemaView();
+			Cview.frmCinemaView.dispose();
+			MainView Mview = new MainView();
 			MainView.frmMainView.setVisible(true);
 		}
 
@@ -55,18 +58,31 @@ public class CinemaViewController {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-
+			movie = Ticket.getMovie();
+			cinema = Ticket.getCinema();
+			Time = Ticket.getTime();
+			Date = Ticket.getDate();
 			int result = JOptionPane.showConfirmDialog(app, "Are you sure on the Selected Seats?", "Swing Tester",
 					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+			
 			if (result == JOptionPane.YES_OPTION) {
-				CinemaView.frmCinemaView.dispose();
-				ticketView print = new ticketView();
-				print.frmTicketView.setVisible(true);
+				Ticket ticket = new Ticket(null, movie, cinema, select, Time, Date, 0);
+			ticket.setMovie(movie);
+			ticket.setCinema(cinema);
+			ticket.setSeat(select);
+			ticket.setTime(Time);
+			ticket.setDate(Date);
+				System.out.println(movie);
+				System.out.println(cinema);
 				System.out.println(select);
-				System.out.println(Ticket.getCinema());
-				System.out.println(Ticket.getTime());
+				System.out.println(Time);
+				System.out.println(Date);
+				CinemaView.frmCinemaView.dispose();
+				ticketView ticketV = new ticketView();
+				ticketV.frmTicketView.setVisible(true);
 			} else {
-				CinemaView.frmCinemaView.setVisible(true);
+				CinemaView Cview = new CinemaView();
+				Cview.frmCinemaView.setVisible(true);
 			}
 
 		}
@@ -100,7 +116,9 @@ public class CinemaViewController {
 				JOptionPane.showMessageDialog(null, "Please Wait");
 				if (i == 0) {
 					JOptionPane.showMessageDialog(null, "Done");
-					ticketView.frmTicketView.dispose();
+					ticketView ticketV = new ticketView();
+					ticketV.frmTicketView.dispose();
+					MainView Mview = new MainView();
 					MainView.frmMainView.setVisible(true);
 				}
 			}

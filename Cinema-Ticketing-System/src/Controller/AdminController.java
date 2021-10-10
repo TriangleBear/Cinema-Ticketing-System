@@ -32,7 +32,8 @@ public class AdminController implements ActionListener {
              JOptionPane.showMessageDialog( txtFieldUsername, "Login Successfully");
              AdminView adminview = new AdminView();
              adminview.adminViewFrame.setVisible(true);
-             MainView.frmMainView.dispose();		 
+             MainView Mview = new MainView(); 
+             Mview.frmMainView.dispose();		 
          }
          
          else{
@@ -75,8 +76,8 @@ public class AdminController implements ActionListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        	
-        AdminView.adminViewFrame.dispose();
+        AdminView adminview = new AdminView();	
+        adminview.adminViewFrame.dispose();
         MainView main = new MainView();
         main.frmMainView.setVisible(true);
 
