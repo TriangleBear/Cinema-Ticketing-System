@@ -41,13 +41,13 @@ public class MainView {
         //interface
         JButton btnAdmin = new JButton("Admin");
         JButton btnCinemaOne = new JButton("");
-        btnCinemaOne.setRolloverIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\giphy.gif"));
+        btnCinemaOne.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/AEG.gif")));
         JButton btnCinemaTwo = new JButton("");
-        btnCinemaTwo.setRolloverIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\5FA.gif"));
+        btnCinemaTwo.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/5FA.gif")));
         JButton btnCinemaThree = new JButton("");
-        btnCinemaThree.setRolloverIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\CGIF.gif"));
+        btnCinemaThree.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/CGIF.gif")));
         JButton btnCinemaFour = new JButton("");
-        btnCinemaFour.setRolloverIcon(new ImageIcon("C:\\Users\\Joseph Colesio\\Desktop\\WGIF.gif"));
+        btnCinemaFour.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/WGIF.gif")));
         JLabel lblBackground = new JLabel("");
         lblBackground.setSize(1000,600);
         
