@@ -31,6 +31,7 @@ public class AdminLogin {
 		loginFrame.setLocationRelativeTo(null);
 		loginFrame.getContentPane().setLayout(null);
 		
+		
 		//labels, buttons,text
 		JLabel lblUsername = new JLabel("Username:");
 		JLabel lblPassword = new JLabel("Password:");

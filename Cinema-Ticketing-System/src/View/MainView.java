@@ -41,7 +41,7 @@ public class MainView {
         //interface
         JButton btnAdmin = new JButton("Admin");
         JButton btnCinemaOne = new JButton("");
-        btnCinemaOne.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/ave.gif")));
+        btnCinemaOne.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/AEG.gif")));
         JButton btnCinemaTwo = new JButton("");
         btnCinemaTwo.setRolloverIcon(new ImageIcon(MainView.class.getResource("/images/5FA.gif")));
         JButton btnCinemaThree = new JButton("");

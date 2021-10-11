@@ -1,817 +1,2003 @@
 package Controller;
 
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import Model.*;
 import View.*;
 
-public class CinemaViewController {
-	public Ticket ticket;
+public class cinemaViewController{
+	private Ticket ticket;
+	private MainView main;
+	private static JButton btn_a1;
 	private static JFrame app;
-	public static String select;
-	public static String movie;
-	public static String cinema;
-	public static String Time;
-	public static String Date;
-	public static int Price = 250;
-	// Constructor
-	public CinemaViewController(Ticket ticket, MainView main, JFrame app) {
+	public static String cinemaseatselected;
+	public static int a1,a2,a3,a4,a5,a6,a7,a8;
+	public static int b1,b2,b3,b4,b5,b6,b7,b8;
+	public static int c1,c2,c3,c4,c5,c6,c7,c8;
+	public static int d1,d2,d3,d4,d5,d6,d7,d8;
+	public static int e1,e2,e3,e4,e5,e6,e7,e8;
+	public static int f1,f2,f3,f4,f5,f6,f7,f8;
+	public static int g1,g2,g3,g4,g5,g6,g7,g8;
+	
+	
+	
+	
+	//Constructor
+	public cinemaViewController(Ticket ticket, JButton btn_a1, MainView main ){
 		this.ticket = ticket;
-		CinemaViewController.app = app;
+		this.main = main;
+		this.btn_a1 = btn_a1;
+		
 	}
-
+	
+	
 	public static class Cancel implements MouseListener {
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			CinemaView Cview = new CinemaView();
-			Cview.frmCinemaView.dispose();
-			MainView Mview = new MainView();
-			MainView.frmMainView.setVisible(true);
-		}
+        @Override
+        public void mouseClicked(MouseEvent e) {
+        	CinemaView.frmCinemaView.dispose();
+        	MainView.frmMainView.setVisible(true);
+        }
 
-		@Override
-		public void mousePressed(MouseEvent e) {
+        @Override
+        public void mousePressed(MouseEvent e) {
 
-		}
+        }
 
-		@Override
-		public void mouseReleased(MouseEvent e) {
+        @Override
+        public void mouseReleased(MouseEvent e) {
 
-		}
+        }
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
+        @Override
+        public void mouseEntered(MouseEvent e) {
 
-		}
+        }
 
-		@Override
-		public void mouseExited(MouseEvent e) {
+        @Override
+        public void mouseExited(MouseEvent e) {
 
-		}
-	}
+        }
+    }
+	
 
-	public static class Confirm implements MouseListener {
-
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			movie = Ticket.getMovie();
-			cinema = Ticket.getCinema();
-			Time = Ticket.getTime();
-			Date = Ticket.getDate();
-			//Price = Ticket.getPrice();
-			int result = JOptionPane.showConfirmDialog(app, "Are you sure on the Selected Seats?", "Swing Tester",
-					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-			
-			if (result == JOptionPane.YES_OPTION) {
-				Ticket ticket = new Ticket(null, movie, cinema, select, Time, Date, 250);
-			ticket.setMovie(movie);
-			ticket.setCinema(cinema);
-			ticket.setSeat(select);
-			ticket.setTime(Time);
-			ticket.setDate(Date);
-			ticket.setPrice(Ticket.getPrice());
-				System.out.println(movie);
-				System.out.println(cinema);
-				System.out.println(select);
-				System.out.println(Time);
-				System.out.println(Date);
-				System.out.println(Price);
-				System.out.println();
-				CinemaView.frmCinemaView.dispose();
-				ticketView ticketV = new ticketView();
-				ticketV.frmTicketView.setVisible(true);
-			} else {
-				CinemaView Cview = new CinemaView();
-				Cview.frmCinemaView.setVisible(true);
-			}
-
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-
-		}
-	}
-
+	
 	public static class Print implements MouseListener {
 
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			for (int i = 0; i < 1; i++) {
-				JOptionPane.showMessageDialog(null, "Please Wait");
-				if (i == 0) {
-					JOptionPane.showMessageDialog(null, "Done");
-					ticketView ticketV = new ticketView();
-					ticketV.frmTicketView.dispose();
-					MainView Mview = new MainView();
-					MainView.frmMainView.setVisible(true);
-				}
-			}
-		}
+        @Override
+        public void mouseClicked(MouseEvent e) {
+               	 for(int i=0; i<1; i++){
+               		 JOptionPane.showMessageDialog(null, "Please Wait" );
+               		 if(i==0){
+               			 JOptionPane.showMessageDialog(null, "Done" );
+                         ticketView.frmTicketView.dispose();
+                         MainView.frmMainView.setVisible(true);
+                         System.out.println(Ticket.getCinemaTime());
+                         System.out.println(Ticket.getCinemaMovie());
+                         System.out.println(Ticket.getCinemaSeat());
+                         System.out.println(Ticket.getCinemaPrice());
+                      	System.out.println(Ticket.getCinemaNum());
+                     	System.out.println(Ticket.getCinemaDate());
+                         }
+               		 }      
+        }
+        
+        @Override
+        public void mousePressed(MouseEvent e) {
 
-		@Override
-		public void mousePressed(MouseEvent e) {
+        }
 
-		}
+        @Override
+        public void mouseReleased(MouseEvent e) {
 
-		@Override
-		public void mouseReleased(MouseEvent e) {
+        }
 
-		}
+        @Override
+        public void mouseEntered(MouseEvent e) {
 
-		@Override
-		public void mouseEntered(MouseEvent e) {
+        }
 
-		}
+        @Override
+        public void mouseExited(MouseEvent e) {
 
-		@Override
-		public void mouseExited(MouseEvent e) {
-
-		}
+        }
 	}
-
-	public static class toggleA1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a1";
-			} else {
-				select = "";
-			}
-		}
+	
+	
+	public static class buttona1 implements ActionListener{
+	public void actionPerformed(ActionEvent ae){
+		int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+	    JOptionPane.YES_NO_OPTION,
+	    JOptionPane.QUESTION_MESSAGE);
+		
+	    if(result == JOptionPane.YES_OPTION){ 
+	    	String action = ae.getActionCommand();
+	    	if (action.equals("selecteda1")) {
+	    		a1 = 1;
+	        }
+		CinemaView.frmCinemaView.dispose();
+        String cinemaSeat = "A1";
+        String cinemaMovie = Ticket.getCinemaMovie();
+    	String cinemaTime = Ticket.getCinemaTime();
+    	String cinemaPrice = Ticket.getCinemaPrice();
+    	String cinemaNum = Ticket.getCinemaNum();
+    	String cinemaDate = Ticket.getCinemaDate();
+    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+                cinemaPrice); 
+     	System.out.println(Ticket.getCinemaSeat());  	
+     	System.out.println(Ticket.getCinemaMovie());
+     	System.out.println(Ticket.getCinemaTime());
+     	ticketView print = new ticketView();
+     	print.frmTicketView.setVisible(true);
+        
+	}else
+	{
+        CinemaView.frmCinemaView.setVisible(true);
+     	}
+	
+            
+    }
+		     
 	}
-
-	public static class toggleA2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a2";
-			} else {
-				select = "";
-			}
+	public static class buttona2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda2")) {
+		    		a2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a3";
-			} else {
-				select = "";
-			}
+	public static class buttona3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda3")) {
+		    		a3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a4";
-			} else {
-				select = "";
-			}
+	public static class buttona4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda4")) {
+		    		a4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a5";
-			} else {
-				select = "";
-			}
+	public static class buttona5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda5")) {
+		    		a5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a6";
-			} else {
-				select = "";
-			}
+	public static class buttona6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda6")) {
+		    		a6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a7";
-			} else {
-				select = "";
-			}
+	public static class buttona7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda7")) {
+		    		a7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleA8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "a8";
-			} else {
-				select = "";
-			}
+	public static class buttona8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selecteda8")) {
+		    		a8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "A8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}public static class toggleB1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b1";
-			} else {
-				select = "";
-			}
+	public static class buttonb1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb1")) {
+		    		b1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b2";
-			} else {
-				select = "";
-			}
+	public static class buttonb2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb2")) {
+		    		b2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b3";
-			} else {
-				select = "";
-			}
+	public static class buttonb3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb3")) {
+		    		b3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b4";
-			} else {
-				select = "";
-			}
+	public static class buttonb4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb4")) {
+		    		b4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b5";
-			} else {
-				select = "";
-			}
+	public static class buttonb5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb5")) {
+		    		b5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b6";
-			} else {
-				select = "";
-			}
+	public static class buttonb6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb6")) {
+		    		b6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b7";
-			} else {
-				select = "";
-			}
+	public static class buttonb7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb7")) {
+		    		b7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleB8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "b8";
-			} else {
-				select = "";
-			}
+	public static class buttonb8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedb8")) {
+		    		b8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "B8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-	public static class toggleC1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c1";
-			} else {
-				select = "";
-			}
+	public static class buttonc1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedc1")) {
+		    		c1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c2";
-			} else {
-				select = "";
-			}
+	public static class buttonc2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+			    	String action = ae.getActionCommand();
+			    	if (action.equals("selectedc2")) {
+			    		c2 = 1;
+			    	}
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c3";
-			} else {
-				select = "";
-			}
+	public static class buttonc3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+			    	String action = ae.getActionCommand();
+			    	if (action.equals("selectedc3")) {
+			    		c3 = 1;
+			        }
+		    
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c4";
-			} else {
-				select = "";
-			}
+	public static class buttonc4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    
+			    	String action = ae.getActionCommand();
+			    	if (action.equals("selectedc4")) {
+			    		c4 = 1;
+			        }
+		    
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c5";
-			} else {
-				select = "";
-			}
+	public static class buttonc5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedc5")) {
+		    		c5 = 1;
+		        }
+		    
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c6";
-			} else {
-				select = "";
-			}
+	public static class buttonc6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedc6")) {
+		    		c6 = 1;
+		        }
+		    
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c7";
-			} else {
-				select = "";
-			}
+	public static class buttonc7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedc7")) {
+		    		c7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+	        
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+		
+	            
+	    }
+			     
 		}
-	}
-
-	public static class toggleC8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "c8";
-			} else {
-				select = "";
-			}
+	public static class buttonc8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedc8")) {
+		    		c8 = 1;
+		        }
+		    
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "C8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-	public static class toggleD1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d1";
-			} else {
-				select = "";
-			}
+	public static class buttond1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd1")) {
+		    		d1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d2";
-			} else {
-				select = "";
-			}
+	public static class buttond2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd2")) {
+		    		d2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d3";
-			} else {
-				select = "";
-			}
+	public static class buttond3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd3")) {
+		    		d3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d4";
-			} else {
-				select = "";
-			}
+	public static class buttond4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd4")) {
+		    		d4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d5";
-			} else {
-				select = "";
-			}
+	public static class buttond5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd5")) {
+		    		d5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d6";
-			} else {
-				select = "";
-			}
+	public static class buttond6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd6")) {
+		    		d6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d7";
-			} else {
-				select = "";
-			}
+	public static class buttond7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd7")) {
+		    		d7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleD8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "d8";
-			} else {
-				select = "";
-			}
+	public static class buttond8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedd8")) {
+		    		d8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "D8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-	public static class toggleE1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e1";
-			} else {
-				select = "";
-			}
+	public static class buttone1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede1")) {
+		    		e1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e2";
-			} else {
-				select = "";
-			}
+	public static class buttone2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede2")) {
+		    		e2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e3";
-			} else {
-				select = "";
-			}
+	public static class buttone3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede3")) {
+		    		e3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e4";
-			} else {
-				select = "";
-			}
+	public static class buttone4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede4")) {
+		    		e4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e5";
-			} else {
-				select = "";
-			}
+	public static class buttone5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede5")) {
+		    		e5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e6";
-			} else {
-				select = "";
-			}
+	public static class buttone6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede6")) {
+		    		e6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e7";
-			} else {
-				select = "";
-			}
+	public static class buttone7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede7")) {
+		    		e7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleE8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "e8";
-			} else {
-				select = "";
-			}
+	public static class buttone8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectede8")) {
+		    		e8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "E8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-	public static class toggleF1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f1";
-			} else {
-				select = "";
-			}
+	public static class buttonf1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf1")) {
+		    		f1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f2";
-			} else {
-				select = "";
-			}
+	public static class buttonf2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf2")) {
+		    		f2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f3";
-			} else {
-				select = "";
-			}
+	public static class buttonf3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf3")) {
+		    		f3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f4";
-			} else {
-				select = "";
-			}
+	public static class buttonf4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf4")) {
+		    		f4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f5";
-			} else {
-				select = "";
-			}
+	public static class buttonf5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf5")) {
+		    		f5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f6";
-			} else {
-				select = "";
-			}
+	public static class buttonf6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf6")) {
+		    		f6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f7";
-			} else {
-				select = "";
-			}
+	public static class buttonf7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf7")) {
+		    		f7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleF8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "f8";
-			} else {
-				select = "";
-			}
+	public static class buttonf8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedf8")) {
+		    		f8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "F8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-	public static class toggleG1 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g1";
-			} else {
-				select = "";
-			}
+	public static class buttong1 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg1")) {
+		    		g1 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G1";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG2 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g2";
-			} else {
-				select = "";
-			}
+	public static class buttong2 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg2")) {
+		    		g2 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G2";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG3 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g3";
-			} else {
-				select = "";
-			}
+	public static class buttong3 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg3")) {
+		    		g3 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G3";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG4 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g4";
-			} else {
-				select = "";
-			}
+	public static class buttong4 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg4")) {
+		    		g4 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G4";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG5 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g5";
-			} else {
-				select = "";
-			}
+	public static class buttong5 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg5")) {
+		    		g5 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G5";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG6 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g6";
-			} else {
-				select = "";
-			}
+	public static class buttong6 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg6")) {
+		    		g6 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G6";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG7 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g7";
-			} else {
-				select = "";
-			}
+	public static class buttong7 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg7")) {
+		    		g7 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G7";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
-
-	public static class toggleG8 implements ItemListener {
-
-		public void itemStateChanged(ItemEvent itemEvent) {
-			int state = itemEvent.getStateChange();
-			if (state == ItemEvent.SELECTED) {
-				select = "g8";
-			} else {
-				select = "";
-			}
+	public static class buttong8 implements ActionListener{
+		public void actionPerformed(ActionEvent ae){
+			int result = JOptionPane.showConfirmDialog(app,"Are you sure on the Selected Seats?", "Swing Tester",
+		    JOptionPane.YES_NO_OPTION,
+		    JOptionPane.QUESTION_MESSAGE);
+		    if(result == JOptionPane.YES_OPTION){ 
+		    	String action = ae.getActionCommand();
+		    	if (action.equals("selectedg8")) {
+		    		g8 = 1;
+		        }
+			CinemaView.frmCinemaView.dispose();
+	        String cinemaSeat = "G8";
+	        String cinemaMovie = Ticket.getCinemaMovie();
+	    	String cinemaTime = Ticket.getCinemaTime();
+	    	String cinemaPrice = Ticket.getCinemaPrice();
+	    	String cinemaNum = Ticket.getCinemaNum();
+	    	String cinemaDate = Ticket.getCinemaDate();
+	    	Ticket ticket = new Ticket(cinemaMovie, cinemaNum, cinemaSeat, cinemaTime, cinemaDate,
+	                cinemaPrice); 
+	     	System.out.println(Ticket.getCinemaSeat());  	
+	     	System.out.println(Ticket.getCinemaMovie());
+	     	System.out.println(Ticket.getCinemaTime());
+	     	System.out.println(Ticket.getCinemaNum());
+	     	System.out.println(Ticket.getCinemaDate());
+	     	ticketView print = new ticketView();
+	     	print.frmTicketView.setVisible(true);
+		}else
+		{
+	        CinemaView.frmCinemaView.setVisible(true);
+	     	}
+	    }
 		}
-	}
 }
+	

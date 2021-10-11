@@ -11,24 +11,24 @@ import javax.swing.JFrame;
 import Model.*;
 import View.*;
 
-public class InfoViewController implements ActionListener{
+public class infoViewController implements ActionListener{
     
     private Ticket ticket;
     private MainView main;
     private JFrame app;
     private JButton btnDateConfirm;
     private JComboBox comboBoxTime;
-    
+	
 	//Constructor
-    public InfoViewController(Ticket Ticket, JButton btnDateConfirm, JComboBox comboBoxTime ) {
+    public infoViewController(Ticket Ticket, JButton btnDateConfirm, JComboBox comboBoxTime ) {
         this.ticket = Ticket;
         this.btnDateConfirm = btnDateConfirm;
         this.comboBoxTime = comboBoxTime;
     }
     
     public void actionPerformed(ActionEvent ae){
-        String selectedChoice = comboBoxTime.getSelectedItem().toString();
-        if (selectedChoice == "") {
+        int selectedChoice = comboBoxTime.getSelectedIndex();
+        if (selectedChoice == 0) {
         btnDateConfirm.setEnabled(false);
         }
         else btnDateConfirm.setEnabled(true);
@@ -42,41 +42,28 @@ public class InfoViewController implements ActionListener{
     public void confirm() {
         CinemaView cinema = new CinemaView();
         cinema.frmCinemaView.setVisible(true);
-        InfoView.frmInfoView.dispose();
+        String cinematype = Ticket.getCinemaMovie();
+        infoView.frmInfoView.dispose();
         MainView.frmMainView.dispose();
-        String movieTitle = String.valueOf(ticket.getMovie());
-        String cinemaChoice =  String.valueOf(ticket.getCinema());
         String time = String.valueOf(comboBoxTime.getSelectedItem());
-        InfoView Iview = new InfoView();
-        String date = Iview.dtf.format(Iview.now).toString();
+        String newprice = Ticket.getCinemaPrice();
+        String cinemaDate = Ticket.getCinemaDate();
+        String cinemaNum = Ticket.getCinemaNum();
         try {
-            Ticket ticket2 = new Ticket(null,movieTitle, cinemaChoice, null, time, date, 0);
-            ticket2.setMovie(movieTitle);
-            ticket2.setCinema(cinemaChoice);
-            ticket2.setTime(time);
-            ticket2.setDate(date);
-            System.out.println(ticket2.getMovie());
-            System.out.println(ticket2.getCinema());
-            System.out.println(ticket2.getTime());
-            System.out.println(ticket2.getDate());
-            System.out.println();
-        } catch (NullPointerException a) {
-            // TODO Auto-generated catch block
-            System.out.println("ayaw gumana");
-        }
-    }
-    
-    public void movieTitle() {
-    	
+			Ticket ticket2 = new Ticket(cinematype, cinemaNum, null, time, cinemaDate, newprice);
+			System.out.println(ticket2.getCinemaTime());
+		} catch (NullPointerException a) {
+			// TODO Auto-generated catch block
+			System.out.println("ayaw gumana");
+		}
     }
 	
 	public static class Cancel implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        	InfoView.frmInfoView.dispose();
-        	MainView Mview = new MainView();
-        	Mview.frmMainView.setVisible(true);
+        	infoView.frmInfoView.dispose();
+        	MainView.frmMainView.setVisible(true);
         }
 
         @Override

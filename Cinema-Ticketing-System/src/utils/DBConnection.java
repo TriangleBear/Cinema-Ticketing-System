@@ -1,10 +1,11 @@
-package Util;
+package utils;
+
 import java.sql.*;
 public class DBConnection{
     private static final String DB_NAME 
-       = "jdbc:mysql://localhost/cinema?serverTimezone=UTC";
+       = "jdbc:mysql://localhost/restaurantreview?serverTimezone=UTC";
     private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "admin";
+    private static final String DB_PASSWORD = "colesio123";
     private static Connection conn = null;
     private static void connect(){
         try{

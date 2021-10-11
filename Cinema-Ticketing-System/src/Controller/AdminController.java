@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,10 +31,9 @@ public class AdminController implements ActionListener {
             validPassword.equals(password)) {
     
              JOptionPane.showMessageDialog( txtFieldUsername, "Login Successfully");
-             AdminView adminview = new AdminView();
+             adminView adminview = new adminView();
              adminview.adminViewFrame.setVisible(true);
-             MainView Mview = new MainView(); 
-             Mview.frmMainView.dispose();		 
+             MainView.frmMainView.dispose();		 
          }
          
          else{
@@ -76,8 +76,8 @@ public class AdminController implements ActionListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        AdminView adminview = new AdminView();	
-        adminview.adminViewFrame.dispose();
+        	
+        adminView.adminViewFrame.dispose();
         MainView main = new MainView();
         main.frmMainView.setVisible(true);
 

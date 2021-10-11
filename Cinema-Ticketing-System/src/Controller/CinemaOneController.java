@@ -1,16 +1,23 @@
 package Controller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.JFrame;
 import Model.*;
 import View.*;
 public class CinemaOneController{
+	private static Ticket ticket;
 	private MainView main;
 	private JFrame app;
-	public static String cinema = "cinema1";
-	public static String movie = "Avengers";
+	static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	static LocalDateTime now = LocalDateTime.now();
+	
+	
 	//Constructor
-	public CinemaOneController(MainView main, JFrame app) {
+	public CinemaOneController(Ticket ticket, MainView main, JFrame app) {
+		this.ticket = ticket;
 		this.main = main;
 		this.app = app;
 	}
@@ -21,17 +28,18 @@ public class CinemaOneController{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        	InfoView info = new InfoView();
+        	infoView info = new infoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Avengers: END GAME");
-			Ticket ticket2 = new Ticket(null, movie, cinema, null, null, null, 0);
-			ticket2.setMovie(movie);
-    		ticket2.setCinema(cinema);
+    		String cinema = "Avengers";
+    		String newprice = Ticket.getCinemaPrice();
+    		String cinemaDate = dtf.format(now);
+    		String cinemaNum = "1";
     		
     		try {
-				System.out.println(Ticket.getMovie());
-				System.out.println(Ticket.getCinema());
-				System.out.println();
+				Ticket ticket2 = new Ticket( cinema,  cinemaNum, null, null,cinemaDate, newprice); 
+				System.out.println(ticket2.getCinemaMovie());
+				System.out.println(ticket2.getCinemaDate());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");
@@ -61,3 +69,5 @@ public class CinemaOneController{
 	
 
 }
+
+
