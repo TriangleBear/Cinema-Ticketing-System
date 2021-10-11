@@ -22,15 +22,14 @@ public class CinemaTwoController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        	InfoView info = new InfoView();
+        	infoView info = new infoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Five Feet Apart");
-    		String Cinema = "cinema2";
-    		String Movie = "Five Feet Apart";
+    		String cinema = "5 Feet Apart";
+    		String newprice = Ticket.getCinemaPrice();
     		try {
-				Ticket ticket2 = new Ticket(null, Movie, Cinema, null, null, null, 0);
-				System.out.println(ticket2.getCinema());
-				System.out.println(ticket2.getMovie());
+    			Ticket ticket2 = new Ticket( cinema,  null, null, null,null, newprice); 
+				System.out.println(ticket2.getCinemaMovie());
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

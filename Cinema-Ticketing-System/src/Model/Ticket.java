@@ -1,76 +1,89 @@
 package Model;
-import java.util.Observable;
-public class Ticket extends Observable
-{
-    private String ticketNumber;
-    private static String movie;
-    private static String cinemaNumber;
-    private static String movieTime;
-    private static String dateNow;
-    private static String cinemaSeat;
-    private static int price = 250;
 
-    public Ticket(String tNumber, String movie, String cinema, String Seat, String Time, String Date, int price){
-        this.ticketNumber = tNumber;
-        this.cinemaNumber = cinema;
-        this.movie = movie;
-        this.cinemaSeat = Seat;
-        this.movieTime = Time;
-        this.dateNow = Date;
-        this.price = price;
-    }
-    private void ticketChanged(){
-        setChanged();
-        notifyObservers();
-    }
-    public String getTicket(){
-        return ticketNumber;
-    }
-    public static String getMovie() {
-    	return movie;
-    }
-    public static String getCinema(){
-        return cinemaNumber;
-    }
-    public static String getSeat(){
-        return cinemaSeat;
-    }
-    public static String getTime(){
-        return movieTime;
-    }
-    public static String getDate() {
-    	return dateNow;
-    }
-    public static int getPrice() {
-        return price;
-    }
-    public void setTicket(String tNumber){
-        this.ticketNumber = tNumber;
-        ticketChanged();
-    }
-    public void setMovie(String movie) {
-    	this.movie = movie;
-    	ticketChanged();
-    }
-    public void setCinema(String cinema){
-        this.cinemaNumber = cinema;
-        ticketChanged();
-    }
-    public void setSeat(String Seat){
-	    this.cinemaSeat = Seat;
-	    ticketChanged();
-    }
-    
-    public void setTime(String Time){
-	    this.movieTime = Time;
-	    ticketChanged();
-    }
-    public void setDate(String Date) {
-    	this.dateNow = Date;
-    	ticketChanged();
-    }
-    public void setPrice(int price) {
-	    this.price = price;
-	    ticketChanged();
-    }
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Observable;
+
+public class Ticket extends Observable {
+	private  String ticketNum;
+	private static String cinemaMovie;
+	private static String cinemaNum;
+	private static String cinemaSeat;
+	private static String cinemaTime;
+	private static String cinemaDate;
+	private static String cinemaPrice = "PHP 250";
+	
+
+	
+
+	public Ticket(String cinemaMovie, String cinemaNum, String cinemaSeat, String cinemaTime,
+			String cinemaDate, String cinemaPrice){
+		this.cinemaMovie = cinemaMovie;
+		this.cinemaNum = cinemaNum;
+		this.cinemaSeat = cinemaSeat;
+		this.cinemaTime = cinemaTime;
+		this.cinemaDate = cinemaDate;
+		this.cinemaPrice = cinemaPrice;
+	}
+
+	private void ticketChanged() {
+		setChanged();
+		notifyObservers();
+	}
+
+
+	public static String getCinemaSeat() {
+		return cinemaSeat;
+	}
+
+	public static String getCinemaNum() {
+		return cinemaNum;
+	}
+
+	public static String getCinemaMovie() {
+		return cinemaMovie;
+	}
+
+	public static String getCinemaTime() {
+		return cinemaTime;
+	}
+
+	public static String getCinemaDate() {
+		return cinemaDate;
+	}
+
+	public static String getCinemaPrice() {
+		return cinemaPrice;
+	}
+
+	public void setCinemaTicket(String ticketNum) {
+		this.ticketNum = ticketNum;
+		ticketChanged();
+	}
+
+	public void setCinemaSeat(String cinemaSeat) {
+		this.cinemaSeat = cinemaSeat;
+		ticketChanged();
+	}
+
+	public void setCinemaMovie(String cinemaMovie) {
+		this.cinemaMovie = cinemaMovie;
+		ticketChanged();
+	}
+
+
+	public void setCinemaTime(String cinemaTime) {
+		this.cinemaTime = cinemaTime;
+		ticketChanged();
+	}
+
+	public void setCinemaDate(String cinemaDate) {
+		this.cinemaDate = cinemaDate;
+		ticketChanged();
+	}
+
+	public void setCinemaPrice(String cinemaPrice) {
+		this.cinemaPrice = cinemaPrice;
+		ticketChanged();
+	}
 }

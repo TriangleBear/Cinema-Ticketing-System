@@ -12,9 +12,9 @@ import Controller.AdminController;
 
 import javax.swing.JButton;
 
-public class AdminView {
+public class adminView {
 
-	public JFrame adminViewFrame;
+	public static JFrame adminViewFrame;
 	private JTable cinemaOne;
 	private JTable cinemaTwo;
 	private JTable cinemaThree;
@@ -23,13 +23,13 @@ public class AdminView {
 	private JButton btnBack;
 
 
-	public AdminView() {
+	public adminView() {
 		adminViewFrame = new JFrame();
-		adminViewFrame.setTitle("Admin Database");
 		adminViewFrame.setBounds(100, 100, 1184, 702);
-		adminViewFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		adminViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		adminViewFrame.getContentPane().setLayout(null);
-
+		adminViewFrame.setLocationRelativeTo(null);
+		adminViewFrame.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("Cinema 1");
 		lblNewLabel.setBounds(10, 21, 113, 29);

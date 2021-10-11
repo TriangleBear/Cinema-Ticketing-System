@@ -12,19 +12,18 @@ import javax.swing.JButton;
 import Controller.*;
 import Model.*;
 
-public class InfoView {
+public class infoView {
 
 	public static JFrame frmInfoView;
 	private Ticket ticket;
 	private JButton btnDateConfirm;
-	public JComboBox comboBoxTime;
-	public String lblDateNow;
-	public JLabel lblMovieTitle;
-	public LocalDateTime now;
-	public DateTimeFormatter dtf;
-	public InfoView() {
+	public static JComboBox comboBoxTime;
+	public static JLabel lblMovieTitle;
+
+	public infoView() {
 		
 		String [] time = {"Select time","10:00am - 11:30am" , "2:00pm - 3:30pm","5:00pm - 6:30pm","8:00pm-9:30pm"};
+		
 		//frame
 		frmInfoView = new JFrame();
 		frmInfoView.setTitle("Movie Times");
@@ -35,8 +34,8 @@ public class InfoView {
 		frmInfoView.setLocationRelativeTo(null);
 		
 		//time
-		dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		now = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		LocalDateTime now = LocalDateTime.now();
 		
 		//GUI
 		lblMovieTitle = new JLabel("");
@@ -44,7 +43,6 @@ public class InfoView {
 		JLabel lblinfoviewDate = new JLabel("Date :");
 		JLabel lblDateNow = new JLabel(dtf.format(now));
 		comboBoxTime = new JComboBox(time);
-		
 		JButton btndateCancel = new JButton("Cancel");
 		btnDateConfirm = new JButton("Confirm");
 		JLabel lblHeader = new JLabel("Selected Movie:");
@@ -69,7 +67,7 @@ public class InfoView {
 		lblHeader.setForeground(new Color(0, 0, 0));
 		lblHeader.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		lblHeader.setBounds(50, 35, 134, 29);
-		lbldateBackground.setIcon(new ImageIcon(InfoView.class.getResource("/images/selectedDate.png")));
+		lbldateBackground.setIcon(new ImageIcon(infoView.class.getResource("/images/selectedDate.png")));
 		
 		
 		//content panes
@@ -83,10 +81,11 @@ public class InfoView {
 		frmInfoView.getContentPane().add(lbldateBackground);
 		
 		btnDateConfirm.setEnabled(false);
-		btnDateConfirm.addActionListener( new InfoViewController(ticket, btnDateConfirm, comboBoxTime));
-		comboBoxTime.addActionListener(new InfoViewController (ticket, btnDateConfirm, comboBoxTime));
+		btnDateConfirm.addActionListener( new infoViewController(ticket, btnDateConfirm, comboBoxTime));
+		comboBoxTime.addActionListener(new infoViewController (ticket, btnDateConfirm, comboBoxTime));
 		
-		btndateCancel.addMouseListener(new InfoViewController.Cancel());
+		
+		btndateCancel.addMouseListener(new infoViewController.Cancel());
 		lblMovieTitle.addMouseListener(new CinemaOneController.CinemaOne());
 		
 	}
