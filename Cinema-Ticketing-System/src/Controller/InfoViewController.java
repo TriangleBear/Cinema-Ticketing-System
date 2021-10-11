@@ -59,6 +59,7 @@ public class InfoViewController implements ActionListener{
             System.out.println(ticket2.getCinema());
             System.out.println(ticket2.getTime());
             System.out.println(ticket2.getDate());
+            System.out.println();
         } catch (NullPointerException a) {
             // TODO Auto-generated catch block
             System.out.println("ayaw gumana");

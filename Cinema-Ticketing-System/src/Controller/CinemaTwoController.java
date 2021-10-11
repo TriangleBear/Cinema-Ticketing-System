@@ -11,6 +11,8 @@ public class CinemaTwoController {
 	private Ticket ticket;
 	private MainView main;
 	private JFrame app;
+	public static String cinema = "cinema2";
+	public static String movie = "Five Feet Apart";
 	
 	public CinemaTwoController(Ticket ticket, MainView main, JFrame app) {
 		this.ticket = ticket;
@@ -25,12 +27,14 @@ public class CinemaTwoController {
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Five Feet Apart");
-    		String Cinema = "cinema2";
-    		String Movie = "Five Feet Apart";
+    		Ticket ticket2 = new Ticket(null, movie, cinema, null, null, null, 0);
+    		ticket2.setMovie(movie);
+    		ticket2.setCinema(cinema);
     		try {
-				Ticket ticket2 = new Ticket(null, Movie, Cinema, null, null, null, 0);
+				
 				System.out.println(ticket2.getCinema());
 				System.out.println(ticket2.getMovie());
+				System.out.println();
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

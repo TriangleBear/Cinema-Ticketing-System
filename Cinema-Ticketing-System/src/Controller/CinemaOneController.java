@@ -24,12 +24,14 @@ public class CinemaOneController{
         	InfoView info = new InfoView();
     		info.frmInfoView.setVisible(true);
     		info.lblMovieTitle.setText("Avengers: END GAME");
-			Ticket ticketC = new Ticket(null, movie, cinema, null, null, null, 0);
-			ticketC.setMovie(movie);
-    		ticketC.setCinema(cinema);
+			Ticket ticket2 = new Ticket(null, movie, cinema, null, null, null, 0);
+			ticket2.setMovie(movie);
+    		ticket2.setCinema(cinema);
+    		
     		try {
 				System.out.println(Ticket.getMovie());
 				System.out.println(Ticket.getCinema());
+				System.out.println();
 			} catch (NullPointerException a) {
 				// TODO Auto-generated catch block
 				System.out.println("ayaw gumana");

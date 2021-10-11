@@ -81,6 +81,7 @@ public class CinemaViewController {
 				System.out.println(Time);
 				System.out.println(Date);
 				System.out.println(Price);
+				System.out.println();
 				CinemaView.frmCinemaView.dispose();
 				ticketView ticketV = new ticketView();
 				ticketV.frmTicketView.setVisible(true);
