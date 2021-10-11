@@ -3,39 +3,46 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.swing.JFrame;
 import Model.*;
 import View.*;
 
 public class CinemaFourController {
-	private Ticket ticket;
-	private MainView main;
-	private JFrame app;
-	public static String cinema = "cinema4";
-	public static String movie = "White Chicks";
-	
-	public CinemaFourController(Ticket ticket, MainView main, JFrame app) {
-		this.ticket = ticket;
-		this.main = main;
-		this.app = app;
-	}
+    private Ticket ticket;
+    private MainView main;
+    private JFrame app;
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    static LocalDateTime now = LocalDateTime.now();
+    
+    public CinemaFourController(Ticket ticket, MainView main, JFrame app) {
+        this.ticket = ticket;
+        this.main = main;
+        this.app = app;
+    }
 
-	public static class CinemaFour implements MouseListener {
+    public static class CinemaFour implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-        	infoView info = new infoView();
-    		info.frmInfoView.setVisible(true);
-    		info.lblMovieTitle.setText("White Chicks");
-    		String cinema = "White Chicks";
-    		String newprice = Ticket.getCinemaPrice();
-    		try {
-    			Ticket ticket2 = new Ticket( cinema,  null, null, null,null, newprice); 
-				System.out.println(ticket2.getCinemaMovie());
-			} catch (NullPointerException a) {
-				// TODO Auto-generated catch block
-				System.out.println("ayaw gumana");
-			}
+            infoView info = new infoView();
+            info.frmInfoView.setVisible(true);
+            info.lblMovieTitle.setText("White Chicks");
+            String cinema = "White Chicks";
+            String newprice = Ticket.getCinemaPrice();
+            String cinemaDate = dtf.format(now);
+            String cinemaNum = "1";
+            try {
+                Ticket ticket2 = new Ticket( cinema,  cinemaNum, null, null,cinemaDate, newprice); 
+                System.out.println(ticket2.getCinemaMovie());
+                System.out.println(ticket2.getCinemaDate());
+                
+            } catch (NullPointerException a) {
+                // TODO Auto-generated catch block
+                System.out.println("ayaw gumana");
+            }
         }
 
         @Override
@@ -58,5 +65,5 @@ public class CinemaFourController {
 
         }
     }
-	
+    
 }
